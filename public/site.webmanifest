@@ -1,0 +1,16 @@
+{
+  "name": "Pranav [[SURNAME]] - Portfolio",
+  "short_name": "Pranav",
+  "description": "Portfolio of Pranav, first-year Computer Engineering student at R.C. Patel Institute of Technology.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0B0C",
+  "theme_color": "#0B0B0C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

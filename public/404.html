@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting — Pranav Portfolio</title>
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        sessionStorage.setItem('spa_redirect', path);
+        window.location.replace('/');
+      })();
+    </script>
+    <meta http-equiv="refresh" content="0;URL='/'" />
+  </head>
+  <body>
+    <p>Redirecting to portfolio...</p>
+  </body>
+</html>
