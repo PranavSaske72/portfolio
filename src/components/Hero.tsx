@@ -198,17 +198,17 @@ export const Hero: React.FC = () => {
               <HeroVisual />
             </div>
 
-            <div className="relative z-10 w-full max-w-[260px] sm:max-w-[280px]">
+            <div className="relative z-10 w-full max-w-[280px] sm:max-w-[300px]">
               {/* Vibrant Gradient Glow Aura */}
               <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-40 blur-lg" />
 
-              {/* Main Photo Card with Natural Aspect Ratio & No Zooming */}
+              {/* Main Photo Card with 1:1 Square Ratio */}
               <div className="relative rounded-2xl bg-surface/95 border border-white/15 p-2.5 backdrop-blur-xl shadow-2xl">
-                <div className="w-full aspect-[474/546] rounded-xl overflow-hidden relative bg-black/40 border border-white/10 flex items-center justify-center">
+                <div className="w-full aspect-square rounded-xl overflow-hidden relative border border-white/10 bg-surface-2 flex items-center justify-center">
                   <img
                     src={contact.profilePhoto}
                     alt={fullName}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                     loading="eager"
                   />
                 </div>
