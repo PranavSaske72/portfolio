@@ -35,7 +35,7 @@ export const portfolioContent: ProfileData = {
   role: 'B.Tech AI & Data Science student, aspiring software developer, creative problem solver',
   college: 'R. C. Patel Institute of Technology, Shirpur',
   expectedGraduation: '2029',
-  academicHeadline: 'First-semester SGPA 9.35 • CGPA 8.35/10',
+  academicHeadline: 'Semester 1 SGPA: 8.35 • CGPA: 7.45/10',
 
   languages: [
     { name: 'Marathi', proficiency: 'Native' },
@@ -57,7 +57,7 @@ export const portfolioContent: ProfileData = {
   meta: {
     location: 'Shirpur, Maharashtra, India',
     classYear: 'Class of 2029',
-    academicRecord: 'SGPA 9.35 (Sem 1) • CGPA 8.35',
+    academicRecord: 'SGPA 8.35 (Sem 1) • CGPA 7.45',
   },
 
   aboutBio:
@@ -199,9 +199,9 @@ export const portfolioContent: ProfileData = {
     institution: 'R. C. Patel Institute of Technology, Shirpur',
     location: 'Shirpur, Maharashtra, India',
     period: '2025 – 2029',
-    sgpa: '9.35',
+    sgpa: '8.35',
     sgpaLabel: 'Semester 1 SGPA',
-    cgpa: '8.35 / 10',
+    cgpa: '7.45 / 10',
     details:
       'Department of Artificial Intelligence & Data Science. Autonomous Institute affiliated with DBATU / KBCNMU. Building foundational algorithms, data structures, and intelligent applications.',
     timeline: [
@@ -209,7 +209,7 @@ export const portfolioContent: ProfileData = {
         degree: 'B.Tech in Artificial Intelligence and Data Science',
         institution: 'R. C. Patel Institute of Technology, Shirpur',
         period: '2025 – 2029',
-        score: 'SGPA 9.35 (Sem 1) • CGPA 8.35/10',
+        score: 'SGPA 8.35 (Sem 1) • CGPA 7.45/10',
         scoreLabel: 'Undergraduate Degree',
       },
       {

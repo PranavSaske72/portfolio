@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
               {heroIntro}
             </p>
 
-            {/* Key Metrics / Credential Chips in vibrant colors */}
+            {/* Key Metrics / Credential Chips with SGPA 8.35 & CGPA 7.45 */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-8">
               <div className="p-2.5 rounded-xl bg-surface/80 border border-purple-500/20 backdrop-blur-sm shadow-[0_0_15px_rgba(168,85,247,0.08)]">
                 <div className="text-[10px] font-mono text-purple-400 uppercase tracking-wider flex items-center gap-1 mb-0.5">
@@ -85,10 +85,10 @@ export const Hero: React.FC = () => {
               <div className="p-2.5 rounded-xl bg-surface/80 border border-cyan-500/20 backdrop-blur-sm shadow-[0_0_15px_rgba(0,245,255,0.08)]">
                 <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider flex items-center gap-1 mb-0.5">
                   <Award className="w-3 h-3" />
-                  <span>Cumulative</span>
+                  <span>Cumulative CGPA</span>
                 </div>
                 <div className="font-serif text-xl sm:text-2xl text-cyan-300 font-semibold">
-                  {education.cgpa || '8.35'}
+                  {education.cgpa || '7.45'}
                 </div>
               </div>
 
@@ -191,53 +191,53 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Pranav's Photo Card with Glowing Multi-Color Ring & Floating Tech Chips */}
+          {/* Right Column: Pranav's Photo Card - PROPERLY SIZED, CRISP & NOT ZOOMED */}
           <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
             {/* Background 3D wireframe canvas behind/around photo */}
-            <div className="absolute -inset-4 opacity-30 pointer-events-none">
+            <div className="absolute -inset-4 opacity-25 pointer-events-none">
               <HeroVisual />
             </div>
 
-            <div className="relative z-10 w-full max-w-[340px]">
+            <div className="relative z-10 w-full max-w-[260px] sm:max-w-[280px]">
               {/* Vibrant Gradient Glow Aura */}
-              <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-60 blur-xl animate-pulse" />
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 opacity-40 blur-lg" />
 
-              {/* Main Photo Card */}
-              <div className="relative rounded-2xl bg-surface/90 border border-white/10 p-3 backdrop-blur-xl shadow-2xl">
-                <div className="w-full aspect-[4/5] rounded-xl overflow-hidden relative group border border-white/10">
+              {/* Main Photo Card with Natural Aspect Ratio & No Zooming */}
+              <div className="relative rounded-2xl bg-surface/95 border border-white/15 p-2.5 backdrop-blur-xl shadow-2xl">
+                <div className="w-full aspect-[474/546] rounded-xl overflow-hidden relative bg-black/40 border border-white/10 flex items-center justify-center">
                   <img
                     src={contact.profilePhoto}
                     alt={fullName}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain"
+                    loading="eager"
                   />
-                  {/* Subtle gradient vignette at bottom of photo */}
-                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-3">
-                    <span className="font-serif text-lg text-white font-medium">
-                      {fullName}
-                    </span>
-                    <span className="font-mono text-[11px] text-cyan-300">
-                      R. C. Patel Institute of Technology
-                    </span>
-                  </div>
                 </div>
 
-                {/* Card Info Footer */}
-                <div className="mt-3 flex items-center justify-between px-1 text-xs font-mono">
-                  <span className="text-text-muted">B.Tech AI &amp; DS</span>
-                  <span className="px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 font-semibold flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                    Verified Student
-                  </span>
+                {/* Card Info Footer below photo */}
+                <div className="mt-3 px-1.5 pb-1 flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-serif text-base text-white font-medium">
+                      {fullName}
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-[10px] font-mono text-cyan-300 font-semibold flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      Verified
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] font-mono text-text-dim">
+                    <span>B.Tech AI &amp; DS</span>
+                    <span className="text-purple-300">RCPIT, Shirpur</span>
+                  </div>
                 </div>
               </div>
 
               {/* Floating Colorful Tech Badges */}
-              <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-full bg-surface-2/95 border border-purple-500/40 text-[11px] font-mono text-purple-300 shadow-lg flex items-center gap-1.5 backdrop-blur-md">
+              <div className="absolute -top-3 -right-4 px-3 py-1 rounded-full bg-surface-2/95 border border-purple-500/40 text-[11px] font-mono text-purple-300 shadow-lg flex items-center gap-1.5 backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-purple-400" />
                 <span>AI &amp; Streamlit</span>
               </div>
 
-              <div className="absolute -bottom-3 -left-3 px-3 py-1.5 rounded-full bg-surface-2/95 border border-emerald-500/40 text-[11px] font-mono text-emerald-300 shadow-lg flex items-center gap-1.5 backdrop-blur-md">
+              <div className="absolute -bottom-3 -left-4 px-3 py-1 rounded-full bg-surface-2/95 border border-emerald-500/40 text-[11px] font-mono text-emerald-300 shadow-lg flex items-center gap-1.5 backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 <span>ESP32 Hardware</span>
               </div>

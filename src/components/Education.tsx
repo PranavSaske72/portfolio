@@ -63,7 +63,7 @@ export const Education: React.FC = () => {
                 <div className="pt-3 flex flex-wrap items-center gap-3 font-mono text-xs">
                   <span className="text-emerald-400 flex items-center gap-1 font-semibold">
                     <CheckCircle2 className="w-4 h-4" />
-                    Official Grade Record Verified
+                    SGPA 8.35 (Sem 1) • CGPA 7.45 (Verified)
                   </span>
                 </div>
               </div>
