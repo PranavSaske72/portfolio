@@ -157,8 +157,8 @@ export const HeroVisual: React.FC = () => {
       ctx.rotate(rotY * 0.3)
       ctx.beginPath()
       ctx.ellipse(0, 0, radius * 1.35, radius * 0.55, 0.4, 0, Math.PI * 2)
-      ctx.strokeStyle = 'rgba(198, 244, 50, 0.12)'
-      ctx.lineWidth = 1
+      ctx.strokeStyle = 'rgba(0, 245, 255, 0.25)'
+      ctx.lineWidth = 1.2
       ctx.setLineDash([4, 6])
       ctx.stroke()
       ctx.setLineDash([])
@@ -187,27 +187,30 @@ export const HeroVisual: React.FC = () => {
         ctx.moveTo(p1.sx, p1.sy)
         ctx.lineTo(p2.sx, p2.sy)
 
-        // Depth cueing with lime & white lines
-        const alpha = Math.max(0.12, (avgZ + 1) / 2 * 0.75)
-        ctx.strokeStyle = avgZ > 0.1 ? `rgba(198, 244, 50, ${alpha * 0.9})` : `rgba(242, 242, 238, ${alpha * 0.5})`
-        ctx.lineWidth = avgZ > 0.1 ? 1.5 : 1
+        // Depth cueing with cyan & violet lines
+        const alpha = Math.max(0.18, ((avgZ + 1) / 2) * 0.85)
+        ctx.strokeStyle =
+          avgZ > 0.1
+            ? `rgba(0, 245, 255, ${alpha})`
+            : `rgba(168, 85, 247, ${alpha * 0.85})`
+        ctx.lineWidth = avgZ > 0.1 ? 1.8 : 1.2
         ctx.stroke()
       })
 
       // Draw node dots at vertices
       transformed.forEach((p) => {
-        const alpha = Math.max(0.2, (p.z + 1) / 2 * 0.95)
+        const alpha = Math.max(0.3, ((p.z + 1) / 2) * 0.98)
         ctx.beginPath()
-        ctx.arc(p.sx, p.sy, 2.5 * p.scale, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(198, 244, 50, ${alpha})`
+        ctx.arc(p.sx, p.sy, 2.8 * p.scale, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(0, 245, 255, ${alpha})`
         ctx.fill()
 
         // Outer halo on front nodes
-        if (p.z > 0.2) {
+        if (p.z > 0.1) {
           ctx.beginPath()
-          ctx.arc(p.sx, p.sy, 4.5 * p.scale, 0, Math.PI * 2)
-          ctx.strokeStyle = `rgba(198, 244, 50, ${alpha * 0.35})`
-          ctx.lineWidth = 1
+          ctx.arc(p.sx, p.sy, 5.5 * p.scale, 0, Math.PI * 2)
+          ctx.strokeStyle = `rgba(168, 85, 247, ${alpha * 0.5})`
+          ctx.lineWidth = 1.5
           ctx.stroke()
         }
       })

@@ -1,84 +1,98 @@
 import React from 'react'
-import { portfolioContent, isPlaceholder } from '../data/content'
+import { portfolioContent } from '../data/content'
 import { SectionHeading } from './SectionHeading'
 import { Reveal } from './Reveal'
-import { User, Languages, BookOpen, Sparkles, MapPin, Phone, Mail } from 'lucide-react'
+import { Languages, BookOpen, Sparkles, MapPin, Phone, Mail } from 'lucide-react'
 
 export const About: React.FC = () => {
-  const { fullName, aboutBio, pullQuote, languages, contact, college } = portfolioContent
-  const hasCustomPhoto = !isPlaceholder(contact.profilePhoto)
+  const { aboutBio, pullQuote, languages, contact, college } = portfolioContent
 
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="py-24 md:py-32 border-b border-border relative bg-surface/20"
+      className="py-12 md:py-16 border-b border-border/70 relative"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading
           index="01"
-          subtitle="PROFILE"
+          subtitle="PROFILE &amp; PHILOSOPHY"
           title="About Me"
           id="about-heading"
+          colorTheme="pink"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Photo Frame, Contact Mini-List & Languages */}
-          <div className="lg:col-span-5 flex flex-col gap-8">
-            {/* Profile Photo / Designed Frame */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Pull Quote & Bio */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
             <Reveal>
-              <div className="blueprint-card corner-ticks p-6 rounded-xl flex flex-col items-center justify-center text-center relative overflow-hidden group">
-                <div className="w-full aspect-[4/5] max-w-[240px] rounded-lg border border-border-strong bg-surface-2 flex flex-col items-center justify-center relative overflow-hidden shadow-md">
-                  {hasCustomPhoto ? (
-                    <img
-                      src={contact.profilePhoto}
-                      alt={fullName}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center p-6 text-center select-none">
-                      <div className="w-20 h-20 rounded-full border border-border-strong bg-surface flex items-center justify-center mb-3 group-hover:border-accent transition-colors">
-                        <span className="font-serif text-4xl text-text font-medium">P.</span>
-                      </div>
-                      <span className="font-mono text-xs text-text font-medium mb-1">
-                        {fullName}
-                      </span>
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-dashed border-border-strong bg-surface/60 text-[11px] font-mono text-text-dim mt-2">
-                        <User className="w-3 h-3 text-accent" aria-hidden="true" />
-                        <span>Add photo</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-4 flex items-center justify-between w-full font-mono text-[11px] text-text-dim pt-3 border-t border-border">
-                  <span className="text-text font-medium">{fullName}</span>
-                  <span className="text-accent flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                    AI &amp; DS UNDERGRAD
-                  </span>
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-950/20 via-surface/80 to-surface/80 border border-purple-500/30 shadow-[0_10px_35px_-8px_rgba(168,85,247,0.15)]">
+                <p className="font-serif text-2xl sm:text-3xl text-text font-normal leading-snug tracking-tight mb-4">
+                  "{pullQuote}"
+                </p>
+                <div className="text-text-muted text-sm sm:text-base leading-relaxed space-y-3">
+                  <p>{aboutBio}</p>
                 </div>
               </div>
             </Reveal>
 
-            {/* Quick Contact & Details */}
+            {/* Quick Highlights */}
+            <Reveal delayMs={100}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-4 rounded-xl glass-card border border-white/10">
+                  <div className="flex items-center gap-2 font-mono text-xs text-cyan-400 mb-1">
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>INSTITUTION</span>
+                  </div>
+                  <p className="text-sm font-medium text-text">
+                    {college}
+                  </p>
+                  <p className="text-xs text-text-dim">Autonomous Engineering Institute</p>
+                </div>
+
+                <div className="p-4 rounded-xl glass-card border border-white/10">
+                  <div className="flex items-center gap-2 font-mono text-xs text-purple-400 mb-1">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>ENGINEERING DISCIPLINE</span>
+                  </div>
+                  <p className="text-sm font-medium text-text">
+                    B.Tech AI &amp; Data Science
+                  </p>
+                  <p className="text-xs text-text-dim">Batch 2025 – 2029</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right Column: Contact Mini-Card & Languages */}
+          <div className="lg:col-span-5 flex flex-col gap-5">
+            {/* Quick Contact Card */}
             <Reveal delayMs={80}>
-              <div className="blueprint-card p-5 rounded-xl text-xs font-mono space-y-2.5">
+              <div className="glass-card p-5 rounded-2xl border border-white/10 space-y-3 text-xs font-mono">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                  <span className="text-pink-400 font-semibold uppercase tracking-wider">
+                    Direct Contact
+                  </span>
+                  <span className="text-text-dim font-mono">Pranav Mohan Saske</span>
+                </div>
+
                 <div className="flex items-center gap-2 text-text-muted">
-                  <MapPin className="w-3.5 h-3.5 text-accent shrink-0" aria-hidden="true" />
+                  <MapPin className="w-3.5 h-3.5 text-pink-400 shrink-0" />
                   <span>{contact.address || 'Shirpur, Maharashtra, India'}</span>
                 </div>
+
                 {contact.phone && (
                   <div className="flex items-center gap-2 text-text-muted">
-                    <Phone className="w-3.5 h-3.5 text-accent shrink-0" aria-hidden="true" />
-                    <a href={`tel:${contact.phone}`} className="hover:text-accent transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-pink-400 shrink-0" />
+                    <a href={`tel:${contact.phone}`} className="hover:text-pink-300 transition-colors">
                       {contact.phone}
                     </a>
                   </div>
                 )}
+
                 <div className="flex items-center gap-2 text-text-muted">
-                  <Mail className="w-3.5 h-3.5 text-accent shrink-0" aria-hidden="true" />
-                  <a href={`mailto:${contact.email}`} className="hover:text-accent transition-colors break-all">
+                  <Mail className="w-3.5 h-3.5 text-pink-400 shrink-0" />
+                  <a href={`mailto:${contact.email}`} className="hover:text-pink-300 transition-colors break-all">
                     {contact.email}
                   </a>
                 </div>
@@ -87,72 +101,26 @@ export const About: React.FC = () => {
 
             {/* Languages Panel */}
             <Reveal delayMs={120}>
-              <div className="blueprint-card p-6 rounded-xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <Languages className="w-4 h-4 text-accent" aria-hidden="true" />
-                  <h3 className="font-mono text-xs uppercase tracking-wider text-text font-medium">
+              <div className="glass-card p-5 rounded-2xl border border-white/10">
+                <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
+                  <Languages className="w-4 h-4 text-pink-400" aria-hidden="true" />
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-text font-semibold">
                     Languages
                   </h3>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {languages.map((lang) => (
                     <div
                       key={lang.name}
-                      className="flex items-center justify-between py-2 border-b border-border/60 last:border-0"
+                      className="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-2/60"
                     >
-                      <span className="text-sm text-text font-medium">{lang.name}</span>
-                      <span className="font-mono text-xs px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted">
+                      <span className="text-xs font-medium text-text">{lang.name}</span>
+                      <span className="font-mono text-[11px] px-2 py-0.5 rounded-full bg-surface border border-white/10 text-pink-300">
                         {lang.proficiency}
                       </span>
                     </div>
                   ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right Column: Editorial Pull Quote and First-Person Bio */}
-          <div className="lg:col-span-7 flex flex-col gap-8">
-            {/* Pull Quote */}
-            <Reveal>
-              <div className="border-l-2 border-accent pl-6 py-2">
-                <p className="font-serif text-2xl sm:text-3xl lg:text-4xl text-text font-normal leading-snug tracking-tight">
-                  "{pullQuote}"
-                </p>
-              </div>
-            </Reveal>
-
-            {/* First-person bio */}
-            <Reveal delayMs={120}>
-              <div className="prose prose-invert max-w-none text-text-muted text-base sm:text-lg leading-relaxed space-y-4">
-                <p>{aboutBio}</p>
-              </div>
-            </Reveal>
-
-            {/* Fast facts callout cards */}
-            <Reveal delayMs={180}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="p-4 rounded-lg border border-border bg-surface/50">
-                  <div className="flex items-center gap-2 font-mono text-xs text-text-dim mb-1">
-                    <BookOpen className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
-                    <span>INSTITUTION</span>
-                  </div>
-                  <p className="text-sm font-medium text-text">
-                    {college}
-                  </p>
-                  <p className="text-xs text-text-dim">Autonomous Institute</p>
-                </div>
-
-                <div className="p-4 rounded-lg border border-border bg-surface/50">
-                  <div className="flex items-center gap-2 font-mono text-xs text-text-dim mb-1">
-                    <Sparkles className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
-                    <span>DISCIPLINE &amp; CLASS</span>
-                  </div>
-                  <p className="text-sm font-medium text-text">
-                    B.Tech in Artificial Intelligence &amp; Data Science
-                  </p>
-                  <p className="text-xs text-text-dim">Batch 2025 – 2029</p>
                 </div>
               </div>
             </Reveal>

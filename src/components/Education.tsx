@@ -2,7 +2,7 @@ import React from 'react'
 import { portfolioContent } from '../data/content'
 import { SectionHeading } from './SectionHeading'
 import { Reveal } from './Reveal'
-import { GraduationCap, MapPin, Calendar, CheckCircle2, Award } from 'lucide-react'
+import { GraduationCap, MapPin, Calendar, CheckCircle2 } from 'lucide-react'
 
 export const Education: React.FC = () => {
   const { education } = portfolioContent
@@ -11,120 +11,114 @@ export const Education: React.FC = () => {
     <section
       id="education"
       aria-labelledby="education-heading"
-      className="py-24 md:py-32 border-b border-border relative bg-bg"
+      className="py-12 md:py-16 border-b border-border/70 relative"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading
           index="04"
-          subtitle="ACADEMICS"
-          title="Education"
+          subtitle="ACADEMICS &amp; MILESTONES"
+          title="Education Journey"
           id="education-heading"
+          colorTheme="emerald"
         />
 
-        {/* Primary Undergrad Card with 9.35 SGPA stat */}
+        {/* Primary Undergrad Card with Glowing Stat Banner */}
         <Reveal>
-          <div className="blueprint-card corner-ticks rounded-2xl p-6 sm:p-10 border border-border bg-surface mb-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Column: Timeline details */}
-              <div className="lg:col-span-7 flex flex-col justify-between">
+          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/30 bg-surface/80 mb-6 shadow-[0_10px_35px_-8px_rgba(16,185,129,0.15)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              {/* Left Column: Undergrad Details */}
+              <div className="lg:col-span-8 flex flex-col justify-between">
                 <div>
-                  {/* Tag and Year */}
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className="font-mono text-xs px-2.5 py-1 rounded-full bg-accent-dim text-accent border border-accent/30 font-medium inline-flex items-center gap-1.5">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span className="font-mono text-xs px-3 py-1 rounded-full bg-emerald-950/60 text-emerald-300 border border-emerald-500/40 font-semibold inline-flex items-center gap-1.5 shadow-sm">
                       <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" />
-                      <span>UNDERGRADUATE STUDIES</span>
+                      <span>UNDERGRADUATE DEGREE</span>
                     </span>
-                    <span className="font-mono text-xs text-text-dim flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
+                    <span className="font-mono text-xs text-text-muted flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
                       {education.period}
                     </span>
                   </div>
 
-                  {/* Degree Name */}
-                  <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-text font-normal mb-3 leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-serif text-text font-normal mb-2 leading-tight">
                     {education.degree}
                   </h3>
 
-                  {/* Institution */}
-                  <p className="text-base sm:text-lg text-text font-medium mb-1">
+                  <p className="text-base text-emerald-300 font-medium mb-1">
                     {education.institution}
                   </p>
 
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-text-dim mb-6">
-                    <MapPin className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-text-dim mb-4">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
                     <span>{education.location}</span>
                   </div>
 
-                  {/* Details */}
                   {education.details && (
-                    <p className="text-sm text-text-muted leading-relaxed max-w-xl pb-6 border-b border-border">
+                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed max-w-xl pb-4 border-b border-white/10">
                       {education.details}
                     </p>
                   )}
                 </div>
 
-                <div className="pt-4 flex flex-wrap items-center gap-4 font-mono text-xs text-text-dim">
-                  <div className="flex items-center gap-1.5 text-accent">
-                    <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
-                    <span>Semester 1 SGPA: 9.35</span>
-                  </div>
-                  {education.cgpa && (
-                    <div className="flex items-center gap-1.5 text-text">
-                      <Award className="w-4 h-4 text-accent" aria-hidden="true" />
-                      <span>Cumulative CGPA: {education.cgpa}</span>
-                    </div>
-                  )}
+                <div className="pt-3 flex flex-wrap items-center gap-3 font-mono text-xs">
+                  <span className="text-emerald-400 flex items-center gap-1 font-semibold">
+                    <CheckCircle2 className="w-4 h-4" />
+                    Official Grade Record Verified
+                  </span>
                 </div>
               </div>
 
-              {/* Right Column: Prominent SGPA 9.35 Typographic Stat */}
-              <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 sm:p-8 rounded-xl bg-surface-2/60 border border-border text-center relative overflow-hidden">
-                <div className="absolute top-2 right-2 font-mono text-[9px] text-text-dim">
-                  METRIC // ACADEMIC
+              {/* Right Column: Prominent SGPA & CGPA typographic card */}
+              <div className="lg:col-span-4 flex flex-col gap-3">
+                <div className="p-4 rounded-xl bg-surface-2/80 border border-emerald-500/30 text-center relative overflow-hidden">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-emerald-400 font-semibold block mb-0.5">
+                    Semester 1 SGPA
+                  </span>
+                  <div className="font-serif text-4xl sm:text-5xl text-emerald-300 font-bold my-1 tracking-tight">
+                    {education.sgpa}
+                  </div>
+                  <p className="text-[11px] font-mono text-text-muted">
+                    Out of 10.0 (Grade Sheet)
+                  </p>
                 </div>
 
-                <span className="font-mono text-xs uppercase tracking-widest text-text-dim mb-1">
-                  {education.sgpaLabel}
-                </span>
-
-                <div className="font-serif text-6xl sm:text-7xl lg:text-8xl text-accent font-normal tracking-tight my-2">
-                  {education.sgpa}
-                </div>
-
-                <div className="font-mono text-xs text-text-muted border-t border-border pt-3 w-full max-w-[200px]">
-                  SGPA (First Semester)
-                </div>
-
-                <p className="text-[11px] font-mono text-text-dim mt-2 max-w-xs">
-                  First-semester official grade point average at R. C. Patel Institute of Technology.
-                </p>
+                {education.cgpa && (
+                  <div className="p-3 rounded-xl bg-surface-2/80 border border-cyan-500/30 text-center">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-cyan-400 font-semibold block mb-0.5">
+                      Cumulative CGPA
+                    </span>
+                    <div className="font-serif text-2xl sm:text-3xl text-cyan-300 font-bold my-0.5">
+                      {education.cgpa}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </Reveal>
 
-        {/* Complete Academic Journey Timeline (B.Tech, HSC, SSC) */}
+        {/* Complete Academic Journey 3-Card Grid */}
         {education.timeline && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {education.timeline.map((entry, idx) => (
-              <Reveal key={idx} delayMs={idx * 80}>
-                <div className="blueprint-card p-5 rounded-xl border border-border h-full flex flex-col justify-between">
+              <Reveal key={idx} delayMs={idx * 60}>
+                <div className="glass-card p-5 rounded-xl border border-white/10 h-full flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-border text-xs font-mono">
-                      <span className="text-accent font-medium">{entry.scoreLabel}</span>
+                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/10 text-xs font-mono">
+                      <span className="text-emerald-400 font-semibold">{entry.scoreLabel}</span>
                       <span className="text-text-dim">{entry.period}</span>
                     </div>
-                    <h4 className="font-serif text-lg text-text font-normal mb-2">
+                    <h4 className="font-serif text-lg text-text font-normal mb-1">
                       {entry.degree}
                     </h4>
-                    <p className="text-xs text-text-muted mb-4">
+                    <p className="text-xs text-text-muted mb-3">
                       {entry.institution}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-border/70 font-mono text-xs text-text flex items-center justify-between">
+                  <div className="pt-2 border-t border-white/10 font-mono text-xs flex items-center justify-between">
                     <span className="text-text-dim">Score:</span>
-                    <span className="text-accent font-semibold">{entry.score}</span>
+                    <span className="text-emerald-300 font-bold">{entry.score}</span>
                   </div>
                 </div>
               </Reveal>

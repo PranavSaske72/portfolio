@@ -11,38 +11,39 @@ export const Experience: React.FC = () => {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="py-24 md:py-32 border-b border-border relative bg-surface/10"
+      className="py-12 md:py-16 border-b border-border/70 relative"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <SectionHeading
-          index="05"
-          subtitle="LEADERSHIP & SERVICE"
+          index="06"
+          subtitle="COMMUNITY &amp; LEADERSHIP"
           title="Campus Experience"
           id="experience-heading"
+          colorTheme="purple"
         />
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {experience.map((item, idx) => (
-            <Reveal key={item.organization} delayMs={idx * 100}>
-              <div className="blueprint-card corner-ticks rounded-2xl p-6 sm:p-10 border border-border bg-surface">
+            <Reveal key={item.organization} delayMs={idx * 80}>
+              <div className="glass-card rounded-2xl p-6 sm:p-8 border border-purple-500/30 bg-surface/80 shadow-[0_10px_35px_-8px_rgba(168,85,247,0.15)]">
                 {/* Header row */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-border gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-5 border-b border-white/10 gap-3">
                   <div>
-                    <div className="flex items-center gap-2 mb-2 font-mono text-xs text-accent">
+                    <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-purple-400 font-semibold">
                       <Users className="w-3.5 h-3.5" aria-hidden="true" />
-                      <span>COLLEGE CLUB VOLUNTEER</span>
+                      <span>COLLEGE EVENT VOLUNTEER</span>
                     </div>
-                    <h3 className="font-serif text-2xl sm:text-3xl text-text font-normal">
+                    <h3 className="text-2xl sm:text-3xl font-serif text-text font-normal">
                       {item.role} — {item.organization}
                     </h3>
                   </div>
 
-                  <div className="flex flex-wrap sm:flex-col items-start sm:items-end gap-2 text-xs font-mono text-text-dim">
-                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-2 border border-border text-text">
-                      <Calendar className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
+                  <div className="flex flex-wrap sm:flex-col items-start sm:items-end gap-1.5 text-xs font-mono text-text-dim">
+                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/40 text-purple-300 font-semibold">
+                      <Calendar className="w-3.5 h-3.5 text-purple-400" aria-hidden="true" />
                       {item.duration}
                     </span>
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 text-text-muted">
                       <MapPin className="w-3 h-3" aria-hidden="true" />
                       {item.location}
                     </span>
@@ -50,34 +51,27 @@ export const Experience: React.FC = () => {
                 </div>
 
                 {/* Bullets */}
-                <div className="mb-8">
-                  <h4 className="font-mono text-xs uppercase tracking-wider text-text-dim mb-4">
-                    Key Responsibilities:
-                  </h4>
-                  <ul className="space-y-3">
+                <div className="mb-6">
+                  <ul className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {item.points.map((point, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" aria-hidden="true" />
-                        <span className="text-sm sm:text-base text-text-muted leading-relaxed">
-                          {point}
-                        </span>
+                      <li
+                        key={pIdx}
+                        className="p-3.5 rounded-xl bg-surface-2/60 border border-white/5 flex items-start gap-2.5 text-xs sm:text-sm text-text-muted leading-relaxed"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-purple-400 mt-1.5 shrink-0" aria-hidden="true" />
+                        <span>{point}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Ground Reflection block (strictly honest, no fabricated attendee stats) */}
-                <div className="p-5 sm:p-6 rounded-xl bg-surface-2/60 border border-border relative">
-                  <div className="flex items-start gap-3">
-                    <Quote className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
-                    <div>
-                      <span className="font-mono text-xs uppercase tracking-wider text-accent font-semibold block mb-1">
-                        Personal Takeaway &amp; Reflection:
-                      </span>
-                      <p className="text-xs sm:text-sm text-text/90 italic leading-relaxed">
-                        "{item.reflection}"
-                      </p>
-                    </div>
+                {/* Personal reflection callout */}
+                <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-500/30">
+                  <div className="flex items-start gap-2.5">
+                    <Quote className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" aria-hidden="true" />
+                    <p className="text-xs sm:text-sm text-purple-200/90 italic leading-relaxed">
+                      "{item.reflection}"
+                    </p>
                   </div>
                 </div>
               </div>

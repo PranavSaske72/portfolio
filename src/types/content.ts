@@ -132,6 +132,7 @@ export interface ProfileData {
     phone?: string
     github: string
     linkedin: string
+    codechef?: string
     resumeUrl: string
     profilePhoto: string
     siteUrl: string

@@ -86,15 +86,15 @@ export const PlaceholderLink: React.FC<PlaceholderLinkProps> = ({
   switch (variant) {
     case 'button-primary':
       activeClasses =
-        'inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-mono font-medium rounded bg-accent text-accent-text hover:brightness-110 active:scale-[0.98] transition-all shadow-sm'
+        'btn-gradient-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-mono font-medium rounded-full active:scale-[0.98]'
       break
     case 'button-secondary':
       activeClasses =
-        'inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono rounded border border-border hover:border-accent hover:text-accent bg-surface hover:bg-surface-2 transition-all'
+        'inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono rounded-full border border-border hover:border-cyan-400/50 hover:text-cyan-400 bg-surface/80 hover:bg-surface-2 transition-all shadow-sm'
       break
     case 'button-ghost':
       activeClasses =
-        'inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-mono text-text-muted hover:text-text hover:bg-surface-2 rounded transition-all'
+        'inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-mono text-text-muted hover:text-cyan-400 hover:bg-surface-2/70 rounded-lg transition-all'
       break
     case 'chip':
       activeClasses =
