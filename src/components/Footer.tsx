@@ -12,31 +12,30 @@ export const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="py-8 bg-surface border-t border-border relative">
+    <footer className="py-6 bg-surface border-t border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-border">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pb-4 border-b border-border text-xs">
           {/* Identity */}
-          <div className="flex items-center gap-3">
-            <span className="w-7 h-7 rounded-full bg-surface-2 border border-border flex items-center justify-center font-serif text-sm font-semibold text-accent">
-              P.
+          <div className="flex items-center gap-2">
+            <span className="w-5 h-5 rounded bg-surface-2 border border-border flex items-center justify-center font-mono text-[10px] font-bold text-accent">
+              P
             </span>
-            <div>
-              <span className="font-mono text-xs text-text font-semibold block">
-                {fullName}
-              </span>
-              <span className="font-mono text-[11px] text-text-dim">
-                R. C. Patel Institute of Technology, Shirpur
-              </span>
-            </div>
+            <span className="font-mono text-text font-medium">
+              {fullName}
+            </span>
+            <span className="text-text-dim">•</span>
+            <span className="font-mono text-text-dim text-[11px]">
+              RCPIT Shirpur
+            </span>
           </div>
 
           {/* Social Profiles */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <a
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
+              className="p-1.5 rounded bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
               aria-label="GitHub Profile"
             >
               <GithubIcon className="w-3.5 h-3.5" />
@@ -46,7 +45,7 @@ export const Footer: React.FC = () => {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
+              className="p-1.5 rounded bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon className="w-3.5 h-3.5" />
@@ -57,7 +56,7 @@ export const Footer: React.FC = () => {
                 href={contact.codechef}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
+                className="p-1.5 rounded bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
                 aria-label="CodeChef Profile"
               >
                 <CodechefIcon className="w-3.5 h-3.5" />
@@ -66,7 +65,7 @@ export const Footer: React.FC = () => {
 
             <a
               href={`mailto:${contact.email}`}
-              className="p-2 rounded-lg bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
+              className="p-1.5 rounded bg-surface-2 border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
               aria-label="Send Email"
             >
               <Mail className="w-3.5 h-3.5" />
@@ -76,7 +75,7 @@ export const Footer: React.FC = () => {
             <button
               type="button"
               onClick={scrollToTop}
-              className="ml-2 flex items-center gap-1 font-mono text-xs text-text-muted hover:text-text px-2.5 py-1.5 rounded-lg bg-surface-2 border border-border hover:border-accent transition-colors"
+              className="ml-2 flex items-center gap-1 font-mono text-xs text-text-muted hover:text-text px-2 py-1 rounded bg-surface-2 border border-border hover:border-accent transition-colors"
               aria-label="Scroll back to top"
             >
               <span>Top</span>
@@ -86,9 +85,9 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Minimal Copyright */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-mono text-text-dim">
+        <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-1 text-[11px] font-mono text-text-dim">
           <div>
-            &copy; {currentYear} {fullName}. All rights reserved.
+            &copy; {currentYear} {fullName}
           </div>
           <div>
             B.Tech in Artificial Intelligence &amp; Data Science (2025–2029)

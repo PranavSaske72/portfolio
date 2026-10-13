@@ -1,5 +1,4 @@
 import React from 'react'
-import { Reveal } from './Reveal'
 
 interface SectionHeadingProps {
   index: string
@@ -18,27 +17,27 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`mb-8 md:mb-12 ${className}`}>
-      <Reveal>
-        <div className="flex items-center gap-2.5 mb-2.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
-          <span className="font-mono text-xs tracking-wider font-semibold text-accent">
-            {index}
-          </span>
-          <span className="h-px w-6 bg-border-strong" aria-hidden="true" />
-          {subtitle && (
-            <span className="font-mono text-xs uppercase tracking-widest text-text-dim">
+    <div className={`mb-6 sm:mb-8 ${className}`}>
+      <div className="flex items-center gap-2 mb-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
+        <span className="font-mono text-xs font-semibold text-accent">
+          {index}
+        </span>
+        {subtitle && (
+          <>
+            <span className="text-text-dim text-xs">/</span>
+            <span className="font-mono text-xs uppercase tracking-wider text-text-dim">
               {subtitle}
             </span>
-          )}
-        </div>
-        <h2
-          id={id}
-          className="font-serif text-3xl sm:text-4xl md:text-5xl text-text font-normal tracking-tight leading-[1.1]"
-        >
-          {title}
-        </h2>
-      </Reveal>
+          </>
+        )}
+      </div>
+      <h2
+        id={id}
+        className="text-2xl sm:text-3xl font-bold tracking-tight text-text"
+      >
+        {title}
+      </h2>
     </div>
   )
 }

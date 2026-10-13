@@ -21,16 +21,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <article
       aria-labelledby={`project-title-${project.id}`}
-      className="editorial-card rounded-2xl p-6 sm:p-7 group transition-all duration-300"
+      className="editorial-card p-5 sm:p-6 transition-colors"
     >
       <div
-        className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center ${
+        className={`grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-center ${
           isReversed ? 'lg:flex-row-reverse' : ''
         }`}
       >
-        {/* Cover Visual Container */}
+        {/* Visual schematic */}
         <div
-          className={`lg:col-span-5 overflow-hidden rounded-xl bg-surface-2 border border-border ${
+          className={`lg:col-span-5 overflow-hidden rounded-lg bg-surface-2 border border-border ${
             isReversed ? 'lg:order-2' : 'lg:order-1'
           }`}
         >
@@ -49,7 +49,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         >
           <div>
             {/* Header / Index */}
-            <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-border">
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-border">
               <span className="font-mono text-xs font-semibold text-accent flex items-center gap-1.5">
                 {isAI ? <Sparkles className="w-3.5 h-3.5" /> : <Cpu className="w-3.5 h-3.5" />}
                 PROJECT // {project.index}
@@ -62,19 +62,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {/* Title & Tagline */}
             <h3
               id={`project-title-${project.id}`}
-              className="text-2xl sm:text-3xl font-serif text-text font-normal mb-1 leading-tight"
+              className="text-xl sm:text-2xl font-bold text-text mb-1 tracking-tight"
             >
               {project.title}
             </h3>
 
-            <p className="font-mono text-xs text-text-muted mb-4">
+            <p className="font-mono text-xs text-text-muted mb-3">
               {project.tagline}
             </p>
 
-            {/* Problem & What I Built Grid */}
-            <div className="space-y-2.5 mb-4 text-xs">
-              <div className="p-3 rounded-xl bg-surface-2 border border-border">
-                <span className="font-mono text-[10px] text-text-dim uppercase tracking-wider block mb-1 font-semibold">
+            {/* Problem & What I Built */}
+            <div className="space-y-2 mb-3.5 text-xs">
+              <div className="p-2.5 rounded-lg bg-surface-2 border border-border">
+                <span className="font-mono text-[10px] text-text-dim uppercase tracking-wider block mb-0.5 font-semibold">
                   Problem Addressed
                 </span>
                 <p className="text-text-muted leading-relaxed">
@@ -82,8 +82,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-surface-2 border border-border">
-                <span className="font-mono text-[10px] text-accent uppercase tracking-wider block mb-1 font-semibold">
+              <div className="p-2.5 rounded-lg bg-surface-2 border border-border">
+                <span className="font-mono text-[10px] text-accent uppercase tracking-wider block mb-0.5 font-semibold">
                   What I Personally Built
                 </span>
                 <p className="text-text leading-relaxed">
@@ -93,11 +93,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
 
             {/* Tech Stack Chips */}
-            <div className="flex flex-wrap gap-1.5 mb-5">
+            <div className="flex flex-wrap gap-1 mb-4">
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-0.5 rounded-md text-xs font-mono bg-surface-2 border border-border text-text-muted"
+                  className="px-2 py-0.5 rounded text-xs font-mono bg-surface-2 border border-border text-text-muted"
                 >
                   {tech}
                 </span>
@@ -105,8 +105,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
           </div>
 
-          {/* Actions: Case Study & GitHub Repo */}
-          <div className="pt-3 border-t border-border flex flex-wrap items-center gap-2.5">
+          {/* Actions */}
+          <div className="pt-2.5 border-t border-border flex flex-wrap items-center gap-2">
             <button
               type="button"
               onClick={() => onOpenCaseStudy(project)}
@@ -114,7 +114,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               aria-label={`Read full case study for ${project.title}`}
             >
               <BookOpen className="w-3.5 h-3.5" aria-hidden="true" />
-              <span>Read Case Study</span>
+              <span>Case Study</span>
             </button>
 
             {isRepoValid && (
@@ -126,7 +126,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 aria-label={`View ${project.title} repository on GitHub`}
               >
                 <GithubIcon className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>GitHub Repository</span>
+                <span>GitHub Repo</span>
                 <ExternalLink className="w-3 h-3 opacity-60" aria-hidden="true" />
               </a>
             )}

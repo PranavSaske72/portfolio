@@ -9,11 +9,11 @@ import { Footer } from '../components/Footer'
 
 export const Home: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-bg text-text selection:bg-accent selection:text-black overflow-x-hidden bg-grid-subtle">
+    <div className="relative min-h-screen bg-bg text-text selection:bg-accent selection:text-white overflow-x-hidden">
       {/* Navigation */}
       <Nav />
 
-      {/* Main Semantic Landmark with 5 Compact Human-Designed Sections */}
+      {/* Main Landmark with 5 Compact Human-Designed Sections */}
       <main id="main-content" tabIndex={-1} className="outline-none relative z-10">
         {/* A. Hero Section */}
         <Hero />

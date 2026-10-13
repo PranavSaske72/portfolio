@@ -15,14 +15,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
   useEffect(() => {
     if (!project) return
 
-    // Focus close button on mount
     closeButtonRef.current?.focus()
-
-    // Lock body scroll
     const originalOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    // Escape listener and focus trapping
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose()
@@ -61,28 +57,28 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
       role="dialog"
       aria-modal="true"
       aria-labelledby={`case-study-title-${project.id}`}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-bg/80 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm overflow-y-auto"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
     >
       <div
         ref={modalRef}
-        className="blueprint-card corner-ticks w-full max-w-3xl rounded-xl border border-border-strong bg-surface p-6 sm:p-8 md:p-10 shadow-2xl relative max-h-[90vh] overflow-y-auto"
+        className="w-full max-w-2xl rounded-xl border border-border bg-surface p-5 sm:p-7 shadow-xl relative max-h-[90vh] overflow-y-auto"
       >
         {/* Header bar */}
-        <div className="flex items-start justify-between pb-6 border-b border-border gap-4">
+        <div className="flex items-start justify-between pb-4 border-b border-border gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs text-accent">
+            <div className="flex items-center gap-2 mb-1 font-mono text-xs text-accent">
               <span>CASE STUDY // {project.index}</span>
             </div>
             <h3
               id={`case-study-title-${project.id}`}
-              className="font-serif text-2xl sm:text-3xl text-text font-normal"
+              className="text-xl sm:text-2xl font-bold text-text"
             >
               {project.title}
             </h3>
-            <p className="text-sm text-text-muted mt-1">{project.tagline}</p>
+            <p className="text-xs sm:text-sm text-text-muted mt-0.5">{project.tagline}</p>
           </div>
 
           <button
@@ -90,18 +86,18 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
             type="button"
             onClick={onClose}
             aria-label="Close case study dialog"
-            className="w-9 h-9 rounded-full border border-border bg-surface-2 hover:bg-surface flex items-center justify-center text-text hover:text-accent transition-colors shrink-0"
+            className="w-8 h-8 rounded-lg border border-border bg-surface-2 hover:bg-surface flex items-center justify-center text-text hover:text-accent transition-colors shrink-0"
           >
             <X className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
 
         {/* Tech stack chips */}
-        <div className="py-4 border-b border-border flex flex-wrap gap-2">
+        <div className="py-3 border-b border-border flex flex-wrap gap-1.5">
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-1 rounded bg-surface-2 border border-border text-xs font-mono text-text-muted"
+              className="px-2 py-0.5 rounded bg-surface-2 border border-border text-xs font-mono text-text-muted"
             >
               {tech}
             </span>
@@ -109,10 +105,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
         </div>
 
         {/* Content sections */}
-        <div className="py-6 space-y-6 text-sm text-text-muted">
+        <div className="py-4 space-y-4 text-xs sm:text-sm text-text-muted">
           {/* Problem */}
           <section>
-            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-1 flex items-center gap-1.5 font-semibold">
               <span>01.</span>
               <span>The Problem</span>
             </h4>
@@ -121,7 +117,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
           {/* Approach */}
           <section>
-            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-1 flex items-center gap-1.5 font-semibold">
               <span>02.</span>
               <span>Engineering Approach</span>
             </h4>
@@ -130,28 +126,24 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
           {/* What I Built */}
           <section>
-            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-1 flex items-center gap-1.5 font-semibold">
               <span>03.</span>
               <span>What I Built</span>
             </h4>
             <p className="leading-relaxed text-text/90">{caseStudy.whatIBuilt}</p>
           </section>
 
-          {/* Planned Features (if present, e.g. for AI Study Buddy) */}
+          {/* Planned Features */}
           {caseStudy.plannedFeatures && caseStudy.plannedFeatures.length > 0 && (
-            <section className="p-4 rounded-lg bg-surface-2/60 border border-border">
-              <h4 className="font-mono text-xs text-text uppercase tracking-wider mb-2 flex items-center gap-1.5 font-medium">
+            <section className="p-3.5 rounded-lg bg-surface-2 border border-border">
+              <h4 className="font-mono text-xs text-text uppercase tracking-wider mb-1.5 flex items-center gap-1.5 font-semibold">
                 <AlertCircle className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
-                <span>Planned / To Confirm Features</span>
+                <span>Planned Features</span>
               </h4>
-              <p className="text-xs text-text-dim mb-3">
-                Verified fact: built with Python and Streamlit to assist with studying.
-                The following features are under active planning:
-              </p>
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 {caseStudy.plannedFeatures.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-2 font-mono text-xs text-text-muted">
-                    <span className="w-1.5 h-1.5 rounded-full bg-border-strong" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -161,40 +153,30 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project,
 
           {/* What I Learned */}
           <section>
-            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-1 flex items-center gap-1.5 font-semibold">
               <span>04.</span>
               <span>What I Learned</span>
             </h4>
-            <div className="p-3.5 rounded bg-surface-2 border border-dashed border-border-strong">
-              <p className="leading-relaxed text-text/90 font-mono text-xs">
-                {caseStudy.whatILearned}
-              </p>
-              <span className="text-[10px] text-text-dim block mt-1 font-sans">
-                Editable placeholder in src/data/content.ts
-              </span>
-            </div>
+            <p className="leading-relaxed text-text/90 font-mono text-xs bg-surface-2 p-3 rounded-lg border border-border">
+              {caseStudy.whatILearned}
+            </p>
           </section>
 
           {/* What's Next */}
           <section>
-            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <h4 className="font-mono text-xs text-accent uppercase tracking-wider mb-1 flex items-center gap-1.5 font-semibold">
               <span>05.</span>
               <span>What's Next</span>
             </h4>
-            <div className="p-3.5 rounded bg-surface-2 border border-dashed border-border-strong">
-              <p className="leading-relaxed text-text/90 font-mono text-xs">
-                {caseStudy.whatsNext}
-              </p>
-              <span className="text-[10px] text-text-dim block mt-1 font-sans">
-                Editable placeholder in src/data/content.ts
-              </span>
-            </div>
+            <p className="leading-relaxed text-text/90 font-mono text-xs bg-surface-2 p-3 rounded-lg border border-border">
+              {caseStudy.whatsNext}
+            </p>
           </section>
         </div>
 
         {/* Footer Actions */}
-        <div className="pt-6 border-t border-border flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-3">
+        <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
             <PlaceholderLink
               href={project.liveUrl}
               placeholderLabel="Live Demo"

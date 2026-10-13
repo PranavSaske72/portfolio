@@ -1,24 +1,19 @@
 import React from 'react'
-import { useReducedMotion } from '../hooks/useReducedMotion'
 
 /**
  * Smart Irrigation System Cover Visual:
- * Schematic-style IoT blueprint illustration with an ESP32 board outline,
- * soil probe in a ground cross-section, a dashed signal path to a water valve/pump,
- * and animated pulse dots along the signal path (respecting reduced motion).
+ * Clean schematic IoT blueprint illustration with an ESP32 board outline,
+ * soil probe in ground cross-section, and signal path to a water valve/relay.
  */
 export const SmartIrrigationVisual: React.FC = () => {
-  const prefersReduced = useReducedMotion()
-
   return (
     <div
-      className="relative w-full h-full min-h-[220px] sm:min-h-[260px] bg-surface-2/80 rounded-lg p-4 flex items-center justify-center overflow-hidden border border-border"
+      className="relative w-full h-full min-h-[200px] sm:min-h-[220px] bg-surface-2 rounded-lg p-3 sm:p-4 flex items-center justify-center overflow-hidden border border-border"
       aria-label="Smart Irrigation System schematic diagram"
       role="img"
     >
-      {/* Blueprint grid lines */}
       <svg
-        className="w-full h-full max-w-[460px] max-h-[240px]"
+        className="w-full h-full max-w-[420px] max-h-[210px]"
         viewBox="0 0 460 240"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +71,7 @@ export const SmartIrrigationVisual: React.FC = () => {
           ))}
 
           {/* Status LED */}
-          <circle cx="28" cy="15" r="3" className="fill-accent animate-pulse" />
+          <circle cx="28" cy="15" r="2.5" className="fill-accent" />
           <text x="36" y="18" className="fill-text-dim font-mono text-[7px]">GPIO2</text>
         </g>
 
@@ -87,16 +82,6 @@ export const SmartIrrigationVisual: React.FC = () => {
           strokeWidth="1.5"
           strokeDasharray="4 3"
         />
-        {/* Animated pulse dot from soil sensor */}
-        {!prefersReduced && (
-          <circle r="3" className="fill-accent">
-            <animateMotion
-              path="M 230 150 L 150 150 L 150 110 L 130 110"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-          </circle>
-        )}
         <text x="175" y="142" textAnchor="middle" className="fill-text-dim font-mono text-[8px]">
           ADC READ
         </text>
@@ -135,16 +120,6 @@ export const SmartIrrigationVisual: React.FC = () => {
           strokeWidth="1.5"
           strokeDasharray="5 3"
         />
-        {/* Animated pulse dot to valve */}
-        {!prefersReduced && (
-          <circle r="3.5" className="fill-accent">
-            <animateMotion
-              path="M 130 70 L 350 70 L 350 90"
-              dur="2.5s"
-              repeatCount="indefinite"
-            />
-          </circle>
-        )}
         <text x="240" y="64" textAnchor="middle" className="fill-accent font-mono text-[8px] font-medium">
           TRIGGER SIGNAL
         </text>
@@ -185,85 +160,79 @@ export const SmartIrrigationVisual: React.FC = () => {
 
 /**
  * AI Study Buddy Cover Visual:
- * Refined education-dashboard mock with a sidebar,
- * a chat/answer panel with abstract text lines,
- * a topic list, and progress-style cards.
- * Abstract shapes, strictly no fabricated numbers or metrics.
+ * Refined education-dashboard mock with a sidebar and study assistant view.
  */
 export const AIStudyBuddyVisual: React.FC = () => {
   return (
     <div
-      className="relative w-full h-full min-h-[220px] sm:min-h-[260px] bg-surface-2/80 rounded-lg p-4 flex items-center justify-center overflow-hidden border border-border"
+      className="relative w-full h-full min-h-[200px] sm:min-h-[220px] bg-surface-2 rounded-lg p-3 sm:p-4 flex items-center justify-center overflow-hidden border border-border"
       aria-label="AI Study Buddy application interface preview"
       role="img"
     >
-      <div className="w-full max-w-[440px] rounded-lg border border-border-strong bg-surface overflow-hidden shadow-md flex flex-col">
+      <div className="w-full max-w-[420px] rounded-lg border border-border-strong bg-surface overflow-hidden flex flex-col">
         {/* Top bar with mock browser dots */}
-        <div className="px-3 py-2 border-b border-border bg-surface-2 flex items-center justify-between">
+        <div className="px-3 py-1.5 border-b border-border bg-surface-2 flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-border-strong" />
             <span className="w-2 h-2 rounded-full bg-border-strong" />
             <span className="w-2 h-2 rounded-full bg-border-strong" />
           </div>
           <span className="font-mono text-[9px] text-text-dim">
-            streamlit://study-buddy.local
+            streamlit://study-buddy.app
           </span>
           <div className="w-8" />
         </div>
 
         {/* App Main Body: Sidebar + Main chat/study view */}
-        <div className="grid grid-cols-12 min-h-[160px]">
+        <div className="grid grid-cols-12 min-h-[140px]">
           {/* Left Sidebar */}
           <div className="col-span-4 border-r border-border p-2.5 flex flex-col justify-between bg-surface/50">
             <div>
               <div className="font-mono text-[8px] text-accent uppercase tracking-wider mb-2 font-medium">
-                // Topics
+                // Modules
               </div>
               <div className="space-y-1.5">
                 <div className="px-2 py-1 rounded bg-surface-2 border border-border flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  <div className="h-2 w-12 bg-text-muted/60 rounded" />
+                  <div className="h-1.5 w-12 bg-text-muted/60 rounded" />
                 </div>
-                <div className="px-2 py-1 rounded hover:bg-surface-2/50 flex items-center gap-1.5">
+                <div className="px-2 py-1 rounded flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-border-strong" />
-                  <div className="h-2 w-14 bg-text-dim/40 rounded" />
+                  <div className="h-1.5 w-14 bg-text-dim/40 rounded" />
                 </div>
-                <div className="px-2 py-1 rounded hover:bg-surface-2/50 flex items-center gap-1.5">
+                <div className="px-2 py-1 rounded flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-border-strong" />
-                  <div className="h-2 w-10 bg-text-dim/40 rounded" />
+                  <div className="h-1.5 w-10 bg-text-dim/40 rounded" />
                 </div>
               </div>
             </div>
 
             <div className="pt-2 border-t border-border/60">
-              <div className="h-1.5 w-16 bg-text-dim/30 rounded mb-1" />
-              <div className="h-1.5 w-10 bg-text-dim/20 rounded" />
+              <div className="h-1.5 w-14 bg-text-dim/30 rounded" />
             </div>
           </div>
 
           {/* Right Main Panel: Question / Assistance interaction */}
           <div className="col-span-8 p-3 flex flex-col justify-between">
-            {/* Assistant response block with abstract lines */}
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 rounded bg-accent/20 border border-accent/40 flex items-center justify-center font-mono text-[8px] text-accent">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3.5 h-3.5 rounded bg-accent/15 border border-accent/30 flex items-center justify-center font-mono text-[7px] text-accent font-bold">
                   AI
                 </span>
-                <span className="font-mono text-[9px] text-text font-medium">Study Assistant</span>
+                <span className="font-mono text-[9px] text-text font-medium">Learning Assistant</span>
               </div>
 
-              <div className="p-2.5 rounded bg-surface-2 border border-border/80 space-y-1.5">
-                <div className="h-2 w-full bg-text/50 rounded" />
-                <div className="h-2 w-[85%] bg-text/40 rounded" />
-                <div className="h-2 w-[65%] bg-text/30 rounded" />
+              <div className="p-2 rounded bg-surface-2 border border-border space-y-1.5">
+                <div className="h-1.5 w-full bg-text/40 rounded" />
+                <div className="h-1.5 w-[80%] bg-text/30 rounded" />
+                <div className="h-1.5 w-[60%] bg-text/25 rounded" />
               </div>
             </div>
 
-            {/* Abstract Input box at bottom */}
-            <div className="pt-2 mt-2 border-t border-border flex items-center justify-between">
-              <div className="h-2.5 w-36 bg-text-dim/30 rounded" />
-              <span className="font-mono text-[8px] text-accent px-1.5 py-0.5 rounded bg-surface-2 border border-border">
-                Submit
+            <div className="pt-2 border-t border-border flex items-center justify-between">
+              <div className="h-2 w-28 bg-text-dim/20 rounded" />
+              <span className="font-mono text-[7px] text-accent px-1.5 py-0.5 rounded bg-surface-2 border border-border">
+                Generate
               </span>
             </div>
           </div>
