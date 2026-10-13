@@ -57,7 +57,7 @@ export const PlaceholderLink: React.FC<PlaceholderLinkProps> = ({
     }
 
     const baseButtonClasses =
-      'inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono rounded border border-dashed border-border-strong bg-surface/40 text-text-dim cursor-not-allowed select-none transition-all'
+      'inline-flex items-center justify-center gap-2 px-4 py-2 text-xs font-mono rounded-full border border-dashed border-border-strong bg-surface/40 text-text-dim cursor-not-allowed select-none transition-all'
 
     return (
       <button
@@ -71,7 +71,7 @@ export const PlaceholderLink: React.FC<PlaceholderLinkProps> = ({
       >
         {icon || <Lock className="w-3 h-3 opacity-60" aria-hidden="true" />}
         <span>{children || rawPlaceholderName}</span>
-        <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface-2/60 text-text-dim border border-border">
+        <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-surface-2 text-text-dim border border-border">
           Coming soon
         </span>
       </button>
@@ -85,23 +85,21 @@ export const PlaceholderLink: React.FC<PlaceholderLinkProps> = ({
   let activeClasses = ''
   switch (variant) {
     case 'button-primary':
-      activeClasses =
-        'btn-gradient-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-mono font-medium rounded-full active:scale-[0.98]'
+      activeClasses = 'btn-primary'
       break
     case 'button-secondary':
-      activeClasses =
-        'inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono rounded-full border border-border hover:border-cyan-400/50 hover:text-cyan-400 bg-surface/80 hover:bg-surface-2 transition-all shadow-sm'
+      activeClasses = 'btn-secondary'
       break
     case 'button-ghost':
       activeClasses =
-        'inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-mono text-text-muted hover:text-cyan-400 hover:bg-surface-2/70 rounded-lg transition-all'
+        'inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-mono text-text-muted hover:text-accent hover:bg-surface-2 rounded-lg transition-all'
       break
     case 'chip':
       activeClasses =
-        'inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded border border-border hover:border-accent bg-surface hover:text-accent transition-colors'
+        'inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded-md border border-border hover:border-accent bg-surface hover:text-accent transition-colors'
       break
     case 'inline':
-      activeClasses = 'hover-underline-wipe text-text hover:text-accent transition-colors inline-flex items-center gap-1'
+      activeClasses = 'text-text hover:text-accent transition-colors inline-flex items-center gap-1 underline underline-offset-4 decoration-accent/50'
       break
   }
 
