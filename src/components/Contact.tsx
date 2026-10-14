@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { portfolioContent } from '../data/content'
 import { Mail, Copy, Check, Send, Phone, MapPin, FileText, ArrowUpRight } from 'lucide-react'
 import { GithubIcon, LinkedinIcon, CodechefIcon } from './SocialIcons'
+import { Reveal } from './Reveal'
 
 export const Contact: React.FC = () => {
   const { contact } = portfolioContent
@@ -47,8 +48,9 @@ export const Contact: React.FC = () => {
       className="py-14 sm:py-20 bg-white dark:bg-neutral-950"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Contrasting Full Dark Anchor Container (Complementing the Lime Showcase container) */}
-        <div className="bg-neutral-950 text-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-12 lg:p-14 shadow-2xl relative overflow-hidden">
+        <Reveal delayMs={80}>
+          {/* Contrasting Full Dark Anchor Container (Complementing the Lime Showcase container) */}
+          <div className="bg-neutral-950 text-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-12 lg:p-14 shadow-2xl relative overflow-hidden">
           {/* Subtle lime glow highlight in top corner */}
           <div
             className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-lime-400/20 blur-3xl pointer-events-none"
@@ -276,7 +278,8 @@ export const Contact: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Reveal>
+    </div>
+  </section>
   )
 }

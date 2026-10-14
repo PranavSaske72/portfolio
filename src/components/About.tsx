@@ -1,6 +1,7 @@
 import React from 'react'
 import { portfolioContent } from '../data/content'
 import { GraduationCap, Languages, Users } from 'lucide-react'
+import { Reveal } from './Reveal'
 
 export const About: React.FC = () => {
   const { aboutBio, college, education, languages, experience } = portfolioContent
@@ -23,64 +24,71 @@ export const About: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Editorial "Hello!" Philosophy Statement (Directly modeled on the top right of reference image) */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="font-serif italic text-3xl sm:text-4xl text-neutral-800 dark:text-neutral-200 block mb-3">
-            Hello!
-          </span>
-          <p className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 dark:text-white leading-snug">
-            My focus is on blending clear logic, algorithmic fundamentals, and hardware empathy to{' '}
-            <span className="font-serif italic font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-800 dark:text-neutral-200">
-              craft software
-            </span>{' '}
-            that solves real problems.
-          </p>
+        <Reveal delayMs={60}>
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="font-serif italic text-3xl sm:text-4xl text-neutral-800 dark:text-neutral-200 block mb-3">
+              Hello!
+            </span>
+            <p className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 dark:text-white leading-snug">
+              My focus is on blending clear logic, algorithmic fundamentals, and hardware empathy to{' '}
+              <span className="font-serif italic font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-800 dark:text-neutral-200">
+                craft software
+              </span>{' '}
+              that solves real problems.
+            </p>
 
-          {/* Surrounding Skill Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
-            {focusPills.map((pill) => (
-              <span
-                key={pill.label}
-                className={`px-3 py-1 rounded-full text-xs font-sans font-medium border ${pill.color} dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 shadow-2xs`}
-              >
-                {pill.label}
-              </span>
-            ))}
+            {/* Surrounding Skill Pills */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
+              {focusPills.map((pill) => (
+                <span
+                  key={pill.label}
+                  className={`px-3 py-1 rounded-full text-xs font-sans font-medium border ${pill.color} dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 shadow-2xs hover:scale-105 transition-transform duration-200`}
+                >
+                  {pill.label}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Academic Journey & Background Bento */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Left Column: Natural Personal Narrative & Club Volunteering */}
           <div className="lg:col-span-7 flex flex-col gap-5">
-            <div className="card-light rounded-2xl p-6 sm:p-7">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full bg-lime-500" />
-                <h3 className="font-mono text-xs uppercase tracking-wider text-neutral-500 font-bold">
-                  About Pranav Mohan Saske
-                </h3>
+            <Reveal delayMs={100}>
+              <div className="card-light rounded-2xl p-6 sm:p-7">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-lime-500" />
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-neutral-500 font-bold">
+                    About Pranav Mohan Saske
+                  </h3>
+                </div>
+                <div className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-3">
+                  <p>{aboutBio}</p>
+                </div>
               </div>
-              <div className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-3">
-                <p>{aboutBio}</p>
-              </div>
-            </div>
+            </Reveal>
 
             {/* Glitchverse Volunteering Note */}
             {glitchverseExp && (
-              <div className="card-light rounded-2xl p-5 border-l-4 border-l-lime-500">
-                <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-neutral-900 dark:text-white font-semibold">
-                  <Users className="w-4 h-4 text-lime-600" />
-                  <span>College Event Volunteering: {glitchverseExp.organization}</span>
+              <Reveal delayMs={150}>
+                <div className="card-light rounded-2xl p-5 border-l-4 border-l-lime-500">
+                  <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-neutral-900 dark:text-white font-semibold">
+                    <Users className="w-4 h-4 text-lime-600" />
+                    <span>College Event Volunteering: {glitchverseExp.organization}</span>
+                  </div>
+                  <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                    Volunteered during a {glitchverseExp.duration.toLowerCase()} at {glitchverseExp.location} facilitating team matchmaking, managing crowd flow across technical breakout halls, and coordinating real-time event logistics.
+                  </p>
                 </div>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Volunteered during a {glitchverseExp.duration.toLowerCase()} at {glitchverseExp.location} facilitating team matchmaking, managing crowd flow across technical breakout halls, and coordinating real-time event logistics.
-                </p>
-              </div>
+              </Reveal>
             )}
           </div>
 
           {/* Right Column: Verified Academic Record & Languages */}
           <div className="lg:col-span-5 flex flex-col gap-5">
-            <div className="card-light rounded-2xl p-6">
+            <Reveal delayMs={120}>
+              <div className="card-light rounded-2xl p-6">
               <div className="flex items-center justify-between pb-3 mb-4 border-b border-black/5 dark:border-white/10">
                 <div className="flex items-center gap-2 font-mono text-xs text-neutral-900 dark:text-white font-bold">
                   <GraduationCap className="w-4 h-4 text-lime-600" />
@@ -140,8 +148,10 @@ export const About: React.FC = () => {
                 </div>
               </div>
             </div>
+          </Reveal>
 
-            {/* Languages Spoken */}
+          {/* Languages Spoken */}
+          <Reveal delayMs={160}>
             <div className="card-light rounded-2xl p-5">
               <div className="flex items-center gap-2 mb-3 pb-2 border-b border-black/5 dark:border-white/10 font-mono text-xs text-neutral-900 dark:text-white font-bold">
                 <Languages className="w-3.5 h-3.5 text-lime-600" />
@@ -151,7 +161,7 @@ export const About: React.FC = () => {
                 {languages.map((lang) => (
                   <span
                     key={lang.name}
-                    className="px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-xs font-sans text-neutral-800 dark:text-neutral-200"
+                    className="px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-xs font-sans text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
                   >
                     <strong className="font-medium mr-1">{lang.name}</strong>
                     <span className="text-neutral-500 text-[11px]">({lang.proficiency})</span>
@@ -159,7 +169,8 @@ export const About: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
+        </div>
         </div>
       </div>
     </section>

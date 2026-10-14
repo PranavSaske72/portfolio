@@ -19,15 +19,15 @@ export const Hero: React.FC = () => {
       aria-label="Hero Introduction"
       className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 overflow-hidden bg-white dark:bg-neutral-950"
     >
-      {/* Expansive Vibrant Lime Radial Aura Backdrop (Matching reference image) */}
+      {/* Expansive Vibrant Lime Radial Aura Backdrop with Smooth Breathing Glow */}
       <div
-        className="absolute inset-0 pointer-events-none hero-lime-glow -z-0 opacity-90"
+        className="absolute inset-0 pointer-events-none hero-lime-glow -z-0 opacity-90 animate-breathe"
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
-        {/* Top Headline: Hi I'm Pranav / Software Developer */}
-        <div className="text-center mb-6 sm:mb-8">
+        {/* Top Headline: Hi I'm Pranav / Software Developer with Smooth Entry Animation */}
+        <div className="text-center mb-6 sm:mb-8 animate-hero-fade">
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.05]">
             Hi I'm Pranav
           </h1>
@@ -38,8 +38,8 @@ export const Hero: React.FC = () => {
 
         {/* Center Stage: Photo + Floating Information Badges (Layout directly from reference image) */}
         <div className="relative w-full max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[340px] sm:min-h-[400px]">
-          {/* Centered Portrait */}
-          <div className="relative z-10 w-64 sm:w-80 aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800">
+          {/* Centered Portrait with Smooth Scale-In Animation */}
+          <div className="relative z-10 w-64 sm:w-80 aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 animate-hero-photo transition-transform duration-500 hover:scale-[1.02]">
             <img
               src={contact.profilePhoto}
               alt={fullName}
@@ -48,9 +48,9 @@ export const Hero: React.FC = () => {
             />
           </div>
 
-          {/* Floating Pill Left: Available for opportunities (Matching reference) */}
+          {/* Floating Pill Left: Available for opportunities with Gentle Float Animation */}
           {availability && (
-            <div className="sm:absolute sm:top-14 sm:left-4 z-20 mt-4 sm:mt-0 floating-pill">
+            <div className="sm:absolute sm:top-14 sm:left-4 z-20 mt-4 sm:mt-0 floating-pill animate-float-gentle">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-500 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-500" />
@@ -61,8 +61,8 @@ export const Hero: React.FC = () => {
             </div>
           )}
 
-          {/* Floating Pill Bottom Left: Academic Distinction / SGPA 8.35 (Matching reference) */}
-          <div className="sm:absolute sm:bottom-6 sm:left-2 z-20 mt-3 sm:mt-0 max-w-[240px] floating-pill">
+          {/* Floating Pill Bottom Left: Academic Distinction with Gentle Delayed Float */}
+          <div className="sm:absolute sm:bottom-6 sm:left-2 z-20 mt-3 sm:mt-0 max-w-[240px] floating-pill animate-float-delayed">
             <div className="flex -space-x-1.5 overflow-hidden shrink-0">
               <span className="w-5 h-5 rounded-full bg-lime-400 text-neutral-950 flex items-center justify-center font-bold text-[10px]">
                 8.3
@@ -79,14 +79,14 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Floating Text Right: Short bio snippet (Matching reference) */}
-          <div className="sm:absolute sm:top-20 sm:right-2 z-20 mt-4 sm:mt-0 max-w-[260px] text-center sm:text-left">
+          {/* Floating Text Right: Short bio snippet */}
+          <div className="sm:absolute sm:top-20 sm:right-2 z-20 mt-4 sm:mt-0 max-w-[260px] text-center sm:text-left transition-opacity duration-300">
             <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed font-normal">
               Passionate about creating intuitive software, AI tools, and connected IoT systems that connect ideas with real-world value.
             </p>
           </div>
 
-          {/* Floating Action Button Bottom Right: -> Get in Touch (Matching reference) */}
+          {/* Floating Action Button Bottom Right: -> Get in Touch */}
           <div className="sm:absolute sm:bottom-8 sm:right-4 z-20 mt-4 sm:mt-0 flex items-center gap-2">
             <button
               type="button"
@@ -108,32 +108,32 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Tech Stack Logo / Brand Strip (Matching reference image bottom strip) */}
-        <div className="w-full mt-12 pt-8 border-t border-black/5 dark:border-white/10 flex flex-wrap items-center justify-center sm:justify-between gap-6 opacity-75 grayscale hover:grayscale-0 transition-all">
-          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+        {/* Tech Stack Logo / Brand Strip */}
+        <div className="w-full mt-12 pt-8 border-t border-black/5 dark:border-white/10 flex flex-wrap items-center justify-center sm:justify-between gap-6 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider hover:text-lime-600 transition-colors">
             <Terminal className="w-4 h-4 text-lime-600 dark:text-lime-400" />
             <span>Python</span>
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider hover:text-lime-600 transition-colors">
             <Sparkles className="w-4 h-4 text-lime-600 dark:text-lime-400" />
             <span>Streamlit</span>
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider hover:text-lime-600 transition-colors">
             <Code2 className="w-4 h-4 text-lime-600 dark:text-lime-400" />
             <span>C</span>
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider hover:text-lime-600 transition-colors">
             <Cpu className="w-4 h-4 text-lime-600 dark:text-lime-400" />
             <span>ESP32 Hardware</span>
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider hover:text-lime-600 transition-colors">
             <Award className="w-4 h-4 text-lime-600 dark:text-lime-400" />
             <span>Java (OOPs)</span>
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider hover:text-lime-600 transition-colors">
             <span>CodeChef</span>
           </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider hover:text-lime-600 transition-colors">
             <span>GitHub</span>
           </div>
         </div>

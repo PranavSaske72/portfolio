@@ -5,6 +5,7 @@ import { ProjectDetailModal } from './ProjectDetailModal'
 import type { Project } from '../types/content'
 import { GithubIcon } from './SocialIcons'
 import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { Reveal } from './Reveal'
 
 export const Projects: React.FC = () => {
   const { projects, moreProjectsNote, contact } = portfolioContent
@@ -17,8 +18,9 @@ export const Projects: React.FC = () => {
       className="py-12 sm:py-16 md:py-20 bg-white dark:bg-neutral-950 border-b border-black/5 dark:border-white/10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Contrasting Full-Colour Lime Showcase Container (Directly modeled on reference image) */}
-        <div className="section-showcase-lime rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden">
+        <Reveal delayMs={80}>
+          {/* Contrasting Full-Colour Lime Showcase Container (Directly modeled on reference image) */}
+          <div className="section-showcase-lime rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden">
           {/* Header inside the Lime Container */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-8 border-b border-black/15 mb-8">
             <div>
@@ -73,7 +75,8 @@ export const Projects: React.FC = () => {
             </a>
           </div>
         </div>
-      </div>
+      </Reveal>
+    </div>
 
       {/* Case Study Modal */}
       <ProjectDetailModal
