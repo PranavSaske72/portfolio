@@ -58,7 +58,10 @@ export const About: React.FC = () => {
             <Reveal delayMs={100}>
               <div className="card-light rounded-2xl p-6 sm:p-7">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-lime-500" />
+                  <span
+                    className="w-2 h-2 rounded-full transition-colors"
+                    style={{ backgroundColor: 'var(--theme-accent, #84CC16)' }}
+                  />
                   <h3 className="font-mono text-xs uppercase tracking-wider text-neutral-500 font-bold">
                     About Pranav Mohan Saske
                   </h3>
@@ -72,9 +75,15 @@ export const About: React.FC = () => {
             {/* Glitchverse Volunteering Note */}
             {glitchverseExp && (
               <Reveal delayMs={150}>
-                <div className="card-light rounded-2xl p-5 border-l-4 border-l-lime-500">
+                <div
+                  className="card-light rounded-2xl p-5 border-l-4 transition-colors"
+                  style={{ borderLeftColor: 'var(--theme-accent, #84CC16)' }}
+                >
                   <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-neutral-900 dark:text-white font-semibold">
-                    <Users className="w-4 h-4 text-lime-600" />
+                    <Users
+                      className="w-4 h-4 transition-colors"
+                      style={{ color: 'var(--theme-accent, #84CC16)' }}
+                    />
                     <span>College Event Volunteering: {glitchverseExp.organization}</span>
                   </div>
                   <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
@@ -91,7 +100,10 @@ export const About: React.FC = () => {
               <div className="card-light rounded-2xl p-6">
               <div className="flex items-center justify-between pb-3 mb-4 border-b border-black/5 dark:border-white/10">
                 <div className="flex items-center gap-2 font-mono text-xs text-neutral-900 dark:text-white font-bold">
-                  <GraduationCap className="w-4 h-4 text-lime-600" />
+                  <GraduationCap
+                    className="w-4 h-4 transition-colors"
+                    style={{ color: 'var(--theme-accent, #84CC16)' }}
+                  />
                   <span>Verified Academics</span>
                 </div>
                 <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 font-medium">
@@ -111,14 +123,26 @@ export const About: React.FC = () => {
 
               {/* Prominent SGPA & CGPA Cards */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3.5 rounded-xl bg-lime-50 dark:bg-lime-950/40 border border-lime-200 dark:border-lime-800">
-                  <span className="font-mono text-[10px] text-lime-800 dark:text-lime-300 uppercase tracking-wider block mb-0.5 font-bold">
+                <div
+                  className="p-3.5 rounded-xl border transition-colors"
+                  style={{
+                    backgroundColor: 'rgba(var(--theme-accent-rgb, 184, 255, 60), 0.1)',
+                    borderColor: 'rgba(var(--theme-accent-rgb, 184, 255, 60), 0.28)',
+                  }}
+                >
+                  <span
+                    className="font-mono text-[10px] uppercase tracking-wider block mb-0.5 font-bold transition-colors"
+                    style={{ color: 'var(--theme-accent, #84CC16)' }}
+                  >
                     Semester 1 SGPA
                   </span>
-                  <span className="text-2xl font-bold font-mono text-lime-900 dark:text-lime-200">
+                  <span
+                    className="text-2xl font-bold font-mono transition-colors"
+                    style={{ color: 'var(--theme-accent, #84CC16)' }}
+                  >
                     {education.sgpa}
                   </span>
-                  <span className="font-mono text-[10px] text-lime-700/80 dark:text-lime-400 block mt-0.5">
+                  <span className="font-mono text-[10px] text-neutral-500 block mt-0.5">
                     Scale of 10.0
                   </span>
                 </div>
@@ -154,7 +178,10 @@ export const About: React.FC = () => {
           <Reveal delayMs={160}>
             <div className="card-light rounded-2xl p-5">
               <div className="flex items-center gap-2 mb-3 pb-2 border-b border-black/5 dark:border-white/10 font-mono text-xs text-neutral-900 dark:text-white font-bold">
-                <Languages className="w-3.5 h-3.5 text-lime-600" />
+                <Languages
+                  className="w-3.5 h-3.5 transition-colors"
+                  style={{ color: 'var(--theme-accent, #84CC16)' }}
+                />
                 <span>Languages</span>
               </div>
               <div className="flex flex-wrap gap-2">

@@ -66,35 +66,41 @@ body {
 
 /* Accessible focus rings */
 :focus-visible {
-  outline: 2px solid #84CC16;
+  outline: 2px solid var(--theme-accent, #84CC16);
   outline-offset: 2px;
 }
 
-/* Hero Vibrant Lime Aura Glow */
-.hero-lime-glow {
+/* Hero Vibrant Radial Aura Backdrop with dynamic theme accent */
+.hero-lime-glow,
+.hero-theme-glow {
   background: radial-gradient(
     circle at 50% 65%,
-    rgba(184, 255, 60, 0.78) 0%,
-    rgba(184, 255, 60, 0.42) 35%,
-    rgba(184, 255, 60, 0.12) 58%,
+    rgba(var(--theme-accent-rgb, 184, 255, 60), 0.78) 0%,
+    rgba(var(--theme-accent-rgb, 184, 255, 60), 0.42) 35%,
+    rgba(var(--theme-accent-rgb, 184, 255, 60), 0.12) 58%,
     rgba(255, 255, 255, 0) 74%
   );
+  transition: background 0.4s ease;
 }
 
-html.dark .hero-lime-glow {
+html.dark .hero-lime-glow,
+html.dark .hero-theme-glow {
   background: radial-gradient(
     circle at 50% 65%,
-    rgba(184, 255, 60, 0.45) 0%,
-    rgba(184, 255, 60, 0.2) 35%,
-    rgba(184, 255, 60, 0.05) 58%,
+    rgba(var(--theme-accent-rgb, 184, 255, 60), 0.45) 0%,
+    rgba(var(--theme-accent-rgb, 184, 255, 60), 0.2) 35%,
+    rgba(var(--theme-accent-rgb, 184, 255, 60), 0.05) 58%,
     rgba(12, 13, 14, 0) 74%
   );
+  transition: background 0.4s ease;
 }
 
-/* Vibrant Lime Showcase Container */
-.section-showcase-lime {
-  background: linear-gradient(135deg, #B8FF3C 0%, #A3E635 60%, #84CC16 100%);
-  color: #09090B;
+/* Vibrant Full-Colour Showcase Container */
+.section-showcase-lime,
+.section-showcase-theme {
+  background: var(--theme-accent-gradient, linear-gradient(135deg, #B8FF3C 0%, #A3E635 60%, #84CC16 100%));
+  color: var(--theme-accent-text, #09090B);
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* Editorial & Product Cards with smooth depth */
@@ -162,13 +168,14 @@ html.dark .btn-dark:hover {
   background-color: #E4E4E7;
 }
 
-.btn-lime {
+.btn-lime,
+.btn-accent {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #B8FF3C;
-  color: #09090B;
+  background-color: var(--theme-accent, #B8FF3C);
+  color: var(--theme-accent-text, #09090B);
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -176,17 +183,21 @@ html.dark .btn-dark:hover {
   border-radius: 9999px;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.2s ease,
-              box-shadow 0.2s ease;
-  box-shadow: 0 4px 14px rgba(184, 255, 60, 0.35);
+              box-shadow 0.2s ease,
+              background-color 0.3s ease,
+              color 0.3s ease;
+  box-shadow: 0 4px 14px rgba(var(--theme-accent-rgb, 184, 255, 60), 0.35);
 }
 
-.btn-lime:hover {
+.btn-lime:hover,
+.btn-accent:hover {
   filter: brightness(1.06);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(184, 255, 60, 0.45);
+  box-shadow: 0 8px 22px rgba(var(--theme-accent-rgb, 184, 255, 60), 0.45);
 }
 
-.btn-lime:active {
+.btn-lime:active,
+.btn-accent:active {
   transform: scale(0.97);
 }
 

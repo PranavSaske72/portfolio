@@ -3,6 +3,7 @@ import { portfolioContent } from '../data/content'
 import { useTheme } from '../hooks/useTheme'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { Menu, X, Sun, Moon, FileText, Sparkles } from 'lucide-react'
+import { ThemeColorPicker } from './ThemeColorPicker'
 
 interface NavProps {
   onNavigate?: (id: string) => void
@@ -136,7 +137,10 @@ export const Nav: React.FC<NavProps> = () => {
                 <span>Resume</span>
               </a>
 
-              {/* Theme Toggle */}
+              {/* Theme Accent Color Picker (Green, Red, Blue, Purple, Orange, Custom) */}
+              <ThemeColorPicker align="right" />
+
+              {/* Theme Toggle (Dark / Bright) */}
               <button
                 type="button"
                 onClick={toggleTheme}
@@ -144,7 +148,7 @@ export const Nav: React.FC<NavProps> = () => {
                 className="w-9 h-9 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 flex items-center justify-center text-text-muted hover:text-text transition-colors shadow-2xs"
               >
                 {theme === 'dark' ? (
-                  <Sun className="w-4 h-4 text-lime-400" aria-hidden="true" />
+                  <Sun className="w-4 h-4 text-amber-400" aria-hidden="true" />
                 ) : (
                   <Moon className="w-4 h-4 text-neutral-700" aria-hidden="true" />
                 )}
@@ -215,6 +219,9 @@ export const Nav: React.FC<NavProps> = () => {
           </div>
 
           <div className="pt-4 border-t border-black/10 dark:border-white/10 flex flex-col gap-3">
+            {/* Mobile Theme Color Picker */}
+            <ThemeColorPicker isInlineMobile={true} />
+
             <a
               href={portfolioContent.contact.resumeUrl}
               target="_blank"

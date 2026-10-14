@@ -45,7 +45,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div>
             {/* Header / Index badge */}
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-black/5 dark:border-white/10">
-              <span className="font-mono text-xs font-semibold text-lime-700 dark:text-lime-400 flex items-center gap-1.5">
+              <span
+                className="font-mono text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                style={{ color: 'var(--theme-accent, #84CC16)' }}
+              >
                 <Sparkles className="w-3.5 h-3.5" />
                 PROJECT // {project.index}
               </span>
@@ -78,7 +81,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </div>
 
               <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-black/5 dark:border-white/5">
-                <span className="font-mono text-[10px] text-lime-700 dark:text-lime-400 uppercase tracking-wider block mb-0.5 font-semibold">
+                <span
+                  className="font-mono text-[10px] uppercase tracking-wider block mb-0.5 font-semibold transition-colors"
+                  style={{ color: 'var(--theme-accent, #84CC16)' }}
+                >
                   What I Personally Built
                 </span>
                 <p className="text-neutral-900 dark:text-neutral-100 font-medium leading-relaxed">

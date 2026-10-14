@@ -51,9 +51,10 @@ export const Contact: React.FC = () => {
         <Reveal delayMs={80}>
           {/* Contrasting Full Dark Anchor Container (Complementing the Lime Showcase container) */}
           <div className="bg-neutral-950 text-white rounded-3xl sm:rounded-[2.5rem] p-7 sm:p-12 lg:p-14 shadow-2xl relative overflow-hidden">
-          {/* Subtle lime glow highlight in top corner */}
+          {/* Subtle theme glow highlight in top corner */}
           <div
-            className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-lime-400/20 blur-3xl pointer-events-none"
+            className="absolute -top-24 -right-24 w-80 h-80 rounded-full blur-3xl pointer-events-none transition-all duration-500"
+            style={{ backgroundColor: 'rgba(var(--theme-accent-rgb, 184, 255, 60), 0.22)' }}
             aria-hidden="true"
           />
 
@@ -62,8 +63,14 @@ export const Contact: React.FC = () => {
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-lime-400" />
-                  <span className="font-mono text-xs uppercase tracking-widest text-lime-400 font-bold">
+                  <span
+                    className="w-2 h-2 rounded-full transition-colors"
+                    style={{ backgroundColor: 'var(--theme-accent, #B8FF3C)' }}
+                  />
+                  <span
+                    className="font-mono text-xs uppercase tracking-widest font-bold transition-colors"
+                    style={{ color: 'var(--theme-accent, #B8FF3C)' }}
+                  >
                     / Get in Touch
                   </span>
                 </div>
@@ -84,7 +91,10 @@ export const Contact: React.FC = () => {
                   {/* Email */}
                   <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2.5 text-neutral-200 min-w-0">
-                      <Mail className="w-4 h-4 text-lime-400 shrink-0" />
+                      <Mail
+                        className="w-4 h-4 shrink-0 transition-colors"
+                        style={{ color: 'var(--theme-accent, #B8FF3C)' }}
+                      />
                       <span className="truncate">{contact.email}</span>
                     </div>
                     <button
@@ -95,7 +105,10 @@ export const Contact: React.FC = () => {
                       title="Copy email address"
                     >
                       {copied ? (
-                        <Check className="w-4 h-4 text-lime-400" />
+                        <Check
+                          className="w-4 h-4 transition-colors"
+                          style={{ color: 'var(--theme-accent, #B8FF3C)' }}
+                        />
                       ) : (
                         <Copy className="w-4 h-4" />
                       )}
@@ -106,12 +119,16 @@ export const Contact: React.FC = () => {
                   {contact.phone && (
                     <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-between">
                       <div className="flex items-center gap-2.5 text-neutral-300">
-                        <Phone className="w-4 h-4 text-lime-400 shrink-0" />
+                        <Phone
+                          className="w-4 h-4 shrink-0 transition-colors"
+                          style={{ color: 'var(--theme-accent, #B8FF3C)' }}
+                        />
                         <span>{contact.phone}</span>
                       </div>
                       <a
                         href={`tel:${contact.phone}`}
-                        className="text-lime-400 hover:underline text-xs font-semibold"
+                        className="hover:underline text-xs font-semibold transition-colors"
+                        style={{ color: 'var(--theme-accent, #B8FF3C)' }}
                       >
                         Call
                       </a>
@@ -121,7 +138,10 @@ export const Contact: React.FC = () => {
                   {/* Location */}
                   {contact.address && (
                     <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center gap-2.5 text-neutral-400">
-                      <MapPin className="w-4 h-4 text-lime-400 shrink-0" />
+                      <MapPin
+                        className="w-4 h-4 shrink-0 transition-colors"
+                        style={{ color: 'var(--theme-accent, #B8FF3C)' }}
+                      />
                       <span>{contact.address}</span>
                     </div>
                   )}
@@ -242,7 +262,7 @@ export const Contact: React.FC = () => {
                     htmlFor="contact-message"
                     className="block text-xs font-mono text-neutral-400 mb-1.5"
                   >
-                    Message <span className="text-lime-400">*</span>
+                    Message <span style={{ color: 'var(--theme-accent, #B8FF3C)' }}>*</span>
                   </label>
                   <textarea
                     id="contact-message"

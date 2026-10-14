@@ -52,8 +52,14 @@ export const Hero: React.FC = () => {
           {availability && (
             <div className="sm:absolute sm:top-14 sm:left-4 z-20 mt-4 sm:mt-0 floating-pill animate-float-gentle">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-500 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-500" />
+                <span
+                  className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                  style={{ backgroundColor: 'var(--theme-accent, #84CC16)' }}
+                />
+                <span
+                  className="relative inline-flex rounded-full h-2 w-2"
+                  style={{ backgroundColor: 'var(--theme-accent, #84CC16)' }}
+                />
               </span>
               <span className="font-medium text-xs text-neutral-900 dark:text-neutral-100">
                 {availability}
@@ -64,7 +70,13 @@ export const Hero: React.FC = () => {
           {/* Floating Pill Bottom Left: Academic Distinction with Gentle Delayed Float */}
           <div className="sm:absolute sm:bottom-6 sm:left-2 z-20 mt-3 sm:mt-0 max-w-[240px] floating-pill animate-float-delayed">
             <div className="flex -space-x-1.5 overflow-hidden shrink-0">
-              <span className="w-5 h-5 rounded-full bg-lime-400 text-neutral-950 flex items-center justify-center font-bold text-[10px]">
+              <span
+                className="w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px] transition-colors"
+                style={{
+                  backgroundColor: 'var(--theme-accent, #B8FF3C)',
+                  color: 'var(--theme-accent-text, #09090B)',
+                }}
+              >
                 8.3
               </span>
               <span className="w-5 h-5 rounded-full bg-neutral-900 text-white flex items-center justify-center text-[10px]">

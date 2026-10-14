@@ -11,7 +11,7 @@ export const Skills: React.FC = () => {
     {
       id: 'programming',
       title: 'Programming',
-      icon: <Code className="w-4 h-4 text-lime-600 dark:text-lime-400" />,
+      icon: <Code className="w-4 h-4 transition-colors" style={{ color: 'var(--theme-accent, #84CC16)' }} />,
       skills: [
         { name: 'C', level: 'Intermediate, learning' },
         { name: 'Python', level: 'Working knowledge' },
@@ -22,7 +22,7 @@ export const Skills: React.FC = () => {
     {
       id: 'tools',
       title: 'Development Tools',
-      icon: <Terminal className="w-4 h-4 text-lime-600 dark:text-lime-400" />,
+      icon: <Terminal className="w-4 h-4 transition-colors" style={{ color: 'var(--theme-accent, #84CC16)' }} />,
       skills: [
         { name: 'GitHub', level: 'Working knowledge' },
         { name: 'VS Code', level: 'Comfortable' },
@@ -33,7 +33,7 @@ export const Skills: React.FC = () => {
     {
       id: 'ai-tech',
       title: 'AI & Technology',
-      icon: <Sparkles className="w-4 h-4 text-lime-600 dark:text-lime-400" />,
+      icon: <Sparkles className="w-4 h-4 transition-colors" style={{ color: 'var(--theme-accent, #84CC16)' }} />,
       skills: [
         { name: 'AI Applications', level: 'Exploring & building' },
         { name: 'Streamlit', level: 'Working knowledge' },
@@ -43,7 +43,7 @@ export const Skills: React.FC = () => {
     {
       id: 'hardware',
       title: 'Hardware & Electronics',
-      icon: <Cpu className="w-4 h-4 text-lime-600 dark:text-lime-400" />,
+      icon: <Cpu className="w-4 h-4 transition-colors" style={{ color: 'var(--theme-accent, #84CC16)' }} />,
       skills: [
         { name: 'ESP32', level: 'Hands-on, project-level' },
         { name: 'Basic Electronics', level: 'Foundational' },
@@ -116,10 +116,20 @@ export const Skills: React.FC = () => {
         {/* CodeChef Verified Credentials Banner */}
         {contact.codechef && (
           <Reveal delayMs={120}>
-            <div className="card-light rounded-2xl p-5 sm:p-6 mb-5 border-l-4 border-l-lime-500">
+            <div
+              className="card-light rounded-2xl p-5 sm:p-6 mb-5 border-l-4 transition-colors"
+              style={{ borderLeftColor: 'var(--theme-accent, #84CC16)' }}
+            >
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-xl bg-lime-100 dark:bg-lime-950/60 border border-lime-300 dark:border-lime-700 flex items-center justify-center text-lime-900 dark:text-lime-300 shrink-0">
+                  <div
+                    className="w-11 h-11 rounded-xl border flex items-center justify-center shrink-0 transition-colors"
+                    style={{
+                      backgroundColor: 'rgba(var(--theme-accent-rgb, 184, 255, 60), 0.12)',
+                      borderColor: 'rgba(var(--theme-accent-rgb, 184, 255, 60), 0.3)',
+                      color: 'var(--theme-accent, #84CC16)',
+                    }}
+                  >
                     <CodechefIcon className="w-5 h-5" />
                   </div>
                   <div>
@@ -155,7 +165,10 @@ export const Skills: React.FC = () => {
         {/* Active Focus Callout */}
         <Reveal delayMs={150}>
           <div className="p-4 rounded-xl bg-white dark:bg-neutral-900 border border-black/5 dark:border-white/10 flex items-center gap-3 text-xs font-mono shadow-2xs">
-            <CheckCircle className="w-4 h-4 text-lime-600 shrink-0" />
+            <CheckCircle
+              className="w-4 h-4 shrink-0 transition-colors"
+              style={{ color: 'var(--theme-accent, #84CC16)' }}
+            />
             <div className="text-neutral-600 dark:text-neutral-400">
               <span className="text-neutral-900 dark:text-white font-bold uppercase tracking-wider mr-2">
                 Active Focus:

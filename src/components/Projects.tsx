@@ -40,7 +40,10 @@ export const Projects: React.FC = () => {
 
             {/* Pill Badge matching "Seen Resent Works" from reference */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 text-neutral-950 font-sans text-xs font-semibold shadow-md">
-              <Sparkles className="w-3.5 h-3.5 text-lime-700" />
+              <Sparkles
+                className="w-3.5 h-3.5 transition-colors"
+                style={{ color: 'var(--theme-accent, #84CC16)' }}
+              />
               <span>Active Engineering Builds</span>
             </div>
           </div>
