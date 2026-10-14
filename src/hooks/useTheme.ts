@@ -4,15 +4,14 @@ export type Theme = 'dark' | 'light'
 
 export function useTheme(): { theme: Theme; toggleTheme: () => void; setTheme: (theme: Theme) => void } {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'dark'
+    if (typeof window === 'undefined') return 'light'
     try {
       const saved = localStorage.getItem('pranav-theme') as Theme | null
       if (saved === 'light' || saved === 'dark') return saved
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) return 'light'
     } catch {
       // fallback
     }
-    return 'dark'
+    return 'light'
   })
 
   useEffect(() => {

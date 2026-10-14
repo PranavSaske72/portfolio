@@ -2,17 +2,18 @@ import React, { useState, useEffect, useRef } from 'react'
 import { portfolioContent } from '../data/content'
 import { useTheme } from '../hooks/useTheme'
 import { useActiveSection } from '../hooks/useActiveSection'
-import { Menu, X, Sun, Moon, FileText } from 'lucide-react'
+import { Menu, X, Sun, Moon, FileText, Sparkles } from 'lucide-react'
 
 interface NavProps {
   onNavigate?: (id: string) => void
 }
 
 const NAV_LINKS = [
-  { id: 'about', label: 'About', num: '01' },
-  { id: 'skills', label: 'Skills', num: '02' },
-  { id: 'projects', label: 'Projects', num: '03' },
-  { id: 'contact', label: 'Contact', num: '04' },
+  { id: 'projects', label: 'Projects', num: '01' },
+  { id: 'process', label: 'Process', num: '02' },
+  { id: 'about', label: 'About', num: '03' },
+  { id: 'skills', label: 'Skills', num: '04' },
+  { id: 'contact', label: 'Contact', num: '05' },
 ]
 
 export const Nav: React.FC<NavProps> = () => {
@@ -24,7 +25,6 @@ export const Nav: React.FC<NavProps> = () => {
   const menuButtonRef = useRef<HTMLButtonElement | null>(null)
   const mobileMenuRef = useRef<HTMLDivElement | null>(null)
 
-  // Track scroll for nav background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
@@ -33,7 +33,6 @@ export const Nav: React.FC<NavProps> = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
@@ -67,75 +66,74 @@ export const Nav: React.FC<NavProps> = () => {
 
   return (
     <>
-      {/* Skip to main content */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-3 focus:py-1.5 focus:bg-accent focus:text-accent-text focus:font-mono focus:text-xs focus:rounded-md focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-3 focus:py-1.5 focus:bg-neutral-900 focus:text-white focus:font-mono focus:text-xs focus:rounded-full focus:outline-none"
       >
         Skip to main content
       </a>
 
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 ${
-          isScrolled ? 'py-2.5 bg-bg/90 backdrop-blur-md border-b border-border' : 'py-4 bg-transparent'
+          isScrolled
+            ? 'py-3 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md border-b border-black/5 dark:border-white/10 shadow-xs'
+            : 'py-5 bg-transparent'
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <nav
-            aria-label="Main Navigation"
-            className="flex items-center justify-between"
-          >
-            {/* Monogram */}
+          <nav aria-label="Main Navigation" className="flex items-center justify-between gap-4">
+            {/* Wordmark (Like "Elian Ross" in reference image) */}
             <a
               href="#top"
               onClick={(e) => {
                 e.preventDefault()
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
-              className="group flex items-center gap-2 focus:outline-none"
+              className="group flex items-center gap-1.5 focus:outline-none"
               aria-label="Pranav portfolio home"
             >
-              <span className="w-7 h-7 rounded-md border border-border bg-surface-2 flex items-center justify-center font-mono text-xs font-bold text-accent group-hover:border-accent transition-colors">
-                P
-              </span>
-              <span className="font-mono text-xs tracking-tight text-text font-medium hidden sm:inline-block">
+              <span className="font-serif italic text-2xl font-normal text-text tracking-tight hover:opacity-80 transition-opacity">
                 Pranav Saske
               </span>
             </a>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-6">
-              {NAV_LINKS.map((link) => {
-                const isActive = activeSection === link.id
-                return (
-                  <a
-                    key={link.id}
-                    href={`#${link.id}`}
-                    onClick={(e) => handleNavClick(e, link.id)}
-                    className={`font-mono text-xs tracking-wide transition-colors hover:text-accent ${
-                      isActive ? 'text-accent font-semibold' : 'text-text-muted'
-                    }`}
-                  >
-                    <span className="text-[10px] text-text-dim mr-1">
-                      {link.num}
-                    </span>
-                    {link.label}
-                  </a>
-                )
-              })}
+            {/* Center Honor Pill (Like "Google Website Of The Day 2025" in reference image) */}
+            <div className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm text-xs font-sans text-text-muted shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-lime-600 dark:text-lime-400" />
+              <span className="font-medium text-text">B.Tech AI &amp; Data Science</span>
+              <span className="text-text-dim">•</span>
+              <span>SGPA 8.35 • RCPIT Shirpur</span>
             </div>
 
-            {/* Actions: Resume + Theme Toggle + Mobile Menu Trigger */}
-            <div className="flex items-center gap-2">
-              {/* Resume button */}
+            {/* Desktop Navigation Links & Action Buttons */}
+            <div className="flex items-center gap-3">
+              <div className="hidden md:flex items-center gap-6 mr-2">
+                {NAV_LINKS.map((link) => {
+                  const isActive = activeSection === link.id
+                  return (
+                    <a
+                      key={link.id}
+                      href={`#${link.id}`}
+                      onClick={(e) => handleNavClick(e, link.id)}
+                      className={`text-xs font-medium tracking-tight transition-colors hover:text-black dark:hover:text-white ${
+                        isActive ? 'text-black dark:text-white font-semibold' : 'text-text-muted'
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  )
+                })}
+              </div>
+
+              {/* Resume Button */}
               <a
                 href={portfolioContent.contact.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary py-1 px-2.5 text-xs hidden sm:inline-flex"
+                className="btn-dark text-xs py-1.5 px-3.5 hidden sm:inline-flex"
                 aria-label="View or download resume"
               >
-                <FileText className="w-3.5 h-3.5 text-text-muted" aria-hidden="true" />
+                <FileText className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Resume</span>
               </a>
 
@@ -144,16 +142,16 @@ export const Nav: React.FC<NavProps> = () => {
                 type="button"
                 onClick={toggleTheme}
                 aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-                className="w-7 h-7 rounded-md border border-border bg-surface hover:bg-surface-2 flex items-center justify-center text-text-muted hover:text-text transition-colors"
+                className="w-9 h-9 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 flex items-center justify-center text-text-muted hover:text-text transition-colors shadow-2xs"
               >
                 {theme === 'dark' ? (
-                  <Sun className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
+                  <Sun className="w-4 h-4 text-lime-400" aria-hidden="true" />
                 ) : (
-                  <Moon className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
+                  <Moon className="w-4 h-4 text-neutral-700" aria-hidden="true" />
                 )}
               </button>
 
-              {/* Mobile Menu Hamburger */}
+              {/* Mobile Menu Hamburger (Rounded circle button matching reference image) */}
               <button
                 ref={menuButtonRef}
                 type="button"
@@ -161,7 +159,7 @@ export const Nav: React.FC<NavProps> = () => {
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-menu-overlay"
                 aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-                className="md:hidden w-7 h-7 rounded-md border border-border bg-surface hover:bg-surface-2 flex items-center justify-center text-text hover:text-accent transition-colors"
+                className="md:hidden w-9 h-9 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 flex items-center justify-center text-text hover:text-lime-600 transition-colors shadow-2xs"
               >
                 {isMobileMenuOpen ? (
                   <X className="w-4 h-4" aria-hidden="true" />
@@ -174,7 +172,7 @@ export const Nav: React.FC<NavProps> = () => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer */}
       {isMobileMenuOpen && (
         <div
           id="mobile-menu-overlay"
@@ -182,13 +180,10 @@ export const Nav: React.FC<NavProps> = () => {
           role="dialog"
           aria-modal="true"
           aria-label="Site Navigation"
-          className="fixed inset-0 z-50 bg-bg/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 md:hidden overflow-y-auto"
+          className="fixed inset-0 z-50 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 md:hidden overflow-y-auto"
         >
-          {/* Header */}
-          <div className="flex items-center justify-between pb-4 border-b border-border">
-            <span className="font-mono text-xs tracking-wider text-accent uppercase">
-              // Navigation
-            </span>
+          <div className="flex items-center justify-between pb-4 border-b border-black/10 dark:border-white/10">
+            <span className="font-serif italic text-2xl text-text">Pranav Saske</span>
             <button
               type="button"
               onClick={() => {
@@ -196,44 +191,41 @@ export const Nav: React.FC<NavProps> = () => {
                 menuButtonRef.current?.focus()
               }}
               aria-label="Close menu"
-              className="w-8 h-8 rounded-md border border-border bg-surface flex items-center justify-center text-text hover:text-accent transition-colors"
+              className="w-9 h-9 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 flex items-center justify-center text-text"
             >
               <X className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>
 
-          {/* Links list */}
-          <div className="py-6 flex flex-col gap-3">
+          <div className="py-8 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={(e) => handleNavClick(e, link.id)}
-                className="group flex items-baseline justify-between py-2 border-b border-border/50 hover:border-accent transition-colors"
+                className="group flex items-baseline justify-between py-2 border-b border-black/5 dark:border-white/5"
               >
-                <span className="text-xl font-medium text-text group-hover:text-accent transition-colors">
+                <span className="text-2xl font-serif text-text group-hover:text-lime-600 transition-colors">
                   {link.label}
                 </span>
-                <span className="font-mono text-xs text-text-dim group-hover:text-accent">
+                <span className="font-mono text-xs text-text-dim">
                   {link.num}
                 </span>
               </a>
             ))}
           </div>
 
-          {/* Bottom actions */}
-          <div className="pt-4 border-t border-border flex flex-col gap-2.5">
+          <div className="pt-4 border-t border-black/10 dark:border-white/10 flex flex-col gap-3">
             <a
               href={portfolioContent.contact.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary w-full text-center"
+              className="btn-dark w-full text-center"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-4 h-4" />
               <span>View Resume</span>
             </a>
-
-            <span className="font-mono text-[11px] text-text-dim text-center">
+            <span className="font-mono text-xs text-text-dim text-center">
               R. C. Patel Institute of Technology, Shirpur
             </span>
           </div>

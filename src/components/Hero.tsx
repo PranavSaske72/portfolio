@@ -1,15 +1,9 @@
 import React from 'react'
 import { portfolioContent } from '../data/content'
-import { GithubIcon, LinkedinIcon, CodechefIcon } from './SocialIcons'
-import {
-  ArrowDown,
-  ArrowUpRight,
-  FileText,
-  Mail,
-} from 'lucide-react'
+import { ArrowUpRight, ArrowDown, Award, Sparkles, Terminal, Code2, Cpu } from 'lucide-react'
 
 export const Hero: React.FC = () => {
-  const { fullName, role, availability, education, contact } = portfolioContent
+  const { fullName, availability, education, contact } = portfolioContent
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
@@ -23,143 +17,124 @@ export const Hero: React.FC = () => {
     <section
       id="top"
       aria-label="Hero Introduction"
-      className="relative pt-20 sm:pt-24 pb-10 sm:pb-12 border-b border-border"
+      className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 overflow-hidden bg-white dark:bg-neutral-950"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          {/* Left Column: Headline, Bio & Primary CTAs */}
-          <div className="md:col-span-7 lg:col-span-8 flex flex-col justify-center">
-            {/* Status indicator */}
-            {availability && (
-              <div className="mb-3.5 inline-flex items-center gap-2 px-2.5 py-1 rounded-md border border-border bg-surface text-xs font-mono text-text-muted self-start">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                <span>{availability}</span>
-              </div>
-            )}
+      {/* Expansive Vibrant Lime Radial Aura Backdrop (Matching reference image) */}
+      <div
+        className="absolute inset-0 pointer-events-none hero-lime-glow -z-0 opacity-90"
+        aria-hidden="true"
+      />
 
-            {/* Name & Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text tracking-tight leading-tight mb-2">
-              {fullName}
-            </h1>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+        {/* Top Headline: Hi I'm Pranav / Software Developer */}
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.05]">
+            Hi I'm Pranav
+          </h1>
+          <span className="font-serif italic font-normal text-5xl sm:text-7xl md:text-8xl text-neutral-900 dark:text-neutral-100 block -mt-1 sm:-mt-3">
+            Software Developer
+          </span>
+        </div>
 
-            {/* Role & Objective */}
-            <p className="text-base sm:text-lg text-accent font-medium mb-3">
-              {role}
-            </p>
+        {/* Center Stage: Photo + Floating Information Badges (Layout directly from reference image) */}
+        <div className="relative w-full max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[340px] sm:min-h-[400px]">
+          {/* Centered Portrait */}
+          <div className="relative z-10 w-64 sm:w-80 aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800">
+            <img
+              src={contact.profilePhoto}
+              alt={fullName}
+              className="w-full h-full object-cover object-top"
+              loading="eager"
+            />
+          </div>
 
-            {/* Concise supporting paragraph */}
-            <p className="text-sm text-text-muted leading-relaxed max-w-[58ch] mb-5">
-              Artificial Intelligence &amp; Data Science undergraduate at R. C. Patel Institute of Technology, Shirpur (2025–2029). Building practical applications with Python and Streamlit, interfacing ESP32 hardware, and strengthening core software engineering fundamentals.
-            </p>
-
-            {/* Appropriately sized buttons */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-5">
-              <button
-                type="button"
-                onClick={() => scrollTo('projects')}
-                className="btn-primary"
-              >
-                <span>View Projects</span>
-                <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => scrollTo('contact')}
-                className="btn-secondary"
-              >
-                <span>Contact Me</span>
-                <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-              </button>
-
-              <a
-                href={contact.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-                aria-label="View or download resume"
-              >
-                <FileText className="w-3.5 h-3.5 text-text-muted" aria-hidden="true" />
-                <span>Resume</span>
-              </a>
+          {/* Floating Pill Left: Available for opportunities (Matching reference) */}
+          {availability && (
+            <div className="sm:absolute sm:top-14 sm:left-4 z-20 mt-4 sm:mt-0 floating-pill">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-lime-500" />
+              </span>
+              <span className="font-medium text-xs text-neutral-900 dark:text-neutral-100">
+                {availability}
+              </span>
             </div>
+          )}
 
-            {/* Small row of core technologies */}
-            <div className="pt-3.5 border-t border-border flex flex-wrap items-center gap-1.5 text-xs font-mono">
-              <span className="text-text-dim mr-1">Stack:</span>
-              {['Python', 'C', 'Streamlit', 'ESP32', 'Java', 'HTML/CSS', 'Git'].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-0.5 rounded bg-surface-2 border border-border text-text-muted"
-                >
-                  {tech}
-                </span>
-              ))}
+          {/* Floating Pill Bottom Left: Academic Distinction / SGPA 8.35 (Matching reference) */}
+          <div className="sm:absolute sm:bottom-6 sm:left-2 z-20 mt-3 sm:mt-0 max-w-[240px] floating-pill">
+            <div className="flex -space-x-1.5 overflow-hidden shrink-0">
+              <span className="w-5 h-5 rounded-full bg-lime-400 text-neutral-950 flex items-center justify-center font-bold text-[10px]">
+                8.3
+              </span>
+              <span className="w-5 h-5 rounded-full bg-neutral-900 text-white flex items-center justify-center text-[10px]">
+                ★
+              </span>
+            </div>
+            <div className="text-[11px] leading-tight text-neutral-700 dark:text-neutral-300">
+              <strong className="text-neutral-900 dark:text-white block font-semibold">
+                SGPA {education.sgpa} • CGPA {education.cgpa}
+              </strong>
+              <span>RCPIT Shirpur (2025–2029)</span>
             </div>
           </div>
 
-          {/* Right Column: Clean 1:1 square photo */}
-          <div className="md:col-span-5 lg:col-span-4 flex flex-col items-center md:items-end justify-center">
-            <div className="w-full max-w-[240px] sm:max-w-[260px] flex flex-col items-center">
-              <div className="w-full aspect-square rounded-xl overflow-hidden bg-surface-2 border border-border shadow-sm">
-                <img
-                  src={contact.profilePhoto}
-                  alt={fullName}
-                  className="w-full h-full object-cover object-center"
-                  loading="eager"
-                />
-              </div>
+          {/* Floating Text Right: Short bio snippet (Matching reference) */}
+          <div className="sm:absolute sm:top-20 sm:right-2 z-20 mt-4 sm:mt-0 max-w-[260px] text-center sm:text-left">
+            <p className="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed font-normal">
+              Passionate about creating intuitive software, AI tools, and connected IoT systems that connect ideas with real-world value.
+            </p>
+          </div>
 
-              {/* Clean caption */}
-              <div className="mt-2 text-center font-mono text-[11px] text-text-dim">
-                <span>SGPA {education.sgpa}</span>
-                <span className="mx-1.5">•</span>
-                <span>CGPA {education.cgpa}</span>
-              </div>
+          {/* Floating Action Button Bottom Right: -> Get in Touch (Matching reference) */}
+          <div className="sm:absolute sm:bottom-8 sm:right-4 z-20 mt-4 sm:mt-0 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => scrollTo('contact')}
+              className="btn-dark"
+            >
+              <span>Get in Touch</span>
+              <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+            </button>
 
-              {/* Social links row */}
-              <div className="mt-3 flex items-center justify-center gap-1.5">
-                <a
-                  href={contact.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-1.5 rounded-md bg-surface border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
-                  aria-label="GitHub Profile"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                </a>
+            <button
+              type="button"
+              onClick={() => scrollTo('projects')}
+              className="btn-outline-pill"
+            >
+              <span>Projects</span>
+              <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
 
-                <a
-                  href={contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-1.5 rounded-md bg-surface border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
-                  aria-label="LinkedIn Profile"
-                >
-                  <LinkedinIcon className="w-4 h-4" />
-                </a>
-
-                {contact.codechef && (
-                  <a
-                    href={contact.codechef}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-1.5 rounded-md bg-surface border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
-                    aria-label="CodeChef Profile"
-                  >
-                    <CodechefIcon className="w-4 h-4" />
-                  </a>
-                )}
-
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="p-1.5 rounded-md bg-surface border border-border hover:border-accent text-text-muted hover:text-text transition-colors"
-                  aria-label="Send Email"
-                >
-                  <Mail className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
+        {/* Tech Stack Logo / Brand Strip (Matching reference image bottom strip) */}
+        <div className="w-full mt-12 pt-8 border-t border-black/5 dark:border-white/10 flex flex-wrap items-center justify-center sm:justify-between gap-6 opacity-75 grayscale hover:grayscale-0 transition-all">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+            <Terminal className="w-4 h-4 text-lime-600 dark:text-lime-400" />
+            <span>Python</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+            <Sparkles className="w-4 h-4 text-lime-600 dark:text-lime-400" />
+            <span>Streamlit</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+            <Code2 className="w-4 h-4 text-lime-600 dark:text-lime-400" />
+            <span>C / C++</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+            <Cpu className="w-4 h-4 text-lime-600 dark:text-lime-400" />
+            <span>ESP32 Hardware</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+            <Award className="w-4 h-4 text-lime-600 dark:text-lime-400" />
+            <span>Java (OOPs)</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+            <span>CodeChef</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
+            <span>GitHub</span>
           </div>
         </div>
       </div>
