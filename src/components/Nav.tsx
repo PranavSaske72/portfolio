@@ -10,10 +10,9 @@ interface NavProps {
 
 const NAV_LINKS = [
   { id: 'projects', label: 'Projects', num: '01' },
-  { id: 'process', label: 'Process', num: '02' },
-  { id: 'about', label: 'About', num: '03' },
-  { id: 'skills', label: 'Skills', num: '04' },
-  { id: 'contact', label: 'Contact', num: '05' },
+  { id: 'about', label: 'About', num: '02' },
+  { id: 'skills', label: 'Skills', num: '03' },
+  { id: 'contact', label: 'Contact', num: '04' },
 ]
 
 export const Nav: React.FC<NavProps> = () => {

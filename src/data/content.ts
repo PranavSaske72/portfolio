@@ -61,7 +61,7 @@ export const portfolioContent: ProfileData = {
   },
 
   aboutBio:
-    'I am an enthusiastic engineering student pursuing B.Tech in Artificial Intelligence and Data Science at R. C. Patel Institute of Technology. Driven by practical curiosity, I bridge the physical and digital worlds—connecting microcontrollers with software, exploring AI-powered applications, and streamlining workflows through automation. I am currently strengthening my core problem-solving fundamentals in C, Python, Java, and C++, building towards high-impact software development and intelligent systems. I believe in continuous learning, open collaboration, and building solutions that solve real problems.',
+    'I am an enthusiastic engineering student pursuing B.Tech in Artificial Intelligence and Data Science at R. C. Patel Institute of Technology. Driven by practical curiosity, I bridge the physical and digital worlds—connecting microcontrollers with software, exploring AI-powered applications, and streamlining workflows through automation. I am currently strengthening my core problem-solving fundamentals in C, Python, Java, and C#, building towards high-impact software development and intelligent systems. I believe in continuous learning, open collaboration, and building solutions that solve real problems.',
 
   pullQuote:
     'Aspiring to build a smarter tomorrow at the intersection of Artificial Intelligence, clean software, and circuits.',
@@ -78,7 +78,6 @@ export const portfolioContent: ProfileData = {
         { name: 'C', level: 'Intermediate, learning' },
         { name: 'Python', level: 'Working knowledge' },
         { name: 'Java', level: 'Working knowledge (OOPS certified)' },
-        { name: 'C++', level: 'Foundational / Learning' },
         { name: 'C#', level: 'Foundational / Learning' },
       ],
     },
@@ -128,40 +127,8 @@ export const portfolioContent: ProfileData = {
 
   projects: [
     {
-      id: 'smart-irrigation',
-      index: '01',
-      title: 'Smart Irrigation System',
-      tagline: 'Automated soil-moisture sensing and sensor-triggered watering',
-      problem:
-        'Manual watering wastes water through over-irrigation and depends completely on human vigilance to monitor soil conditions.',
-      solution:
-        'An ESP32 reads analog soil-moisture sensor levels in real time and automatically triggers watering when moisture dips below a configured threshold, aimed at efficient water use.',
-      techStack: [
-        'ESP32',
-        'Soil-Moisture Sensor',
-        'C/C++ (Firmware)',
-        'Relay Actuation',
-        'Basic Electronics',
-      ],
-      contribution: 'Bench circuit wiring, sensor threshold calibration, and ESP32 firmware loop logic.',
-      liveUrl: '[[PROJECT_1_LINK]]',
-      repoUrl: 'https://github.com/PranavSaske72',
-      caseStudy: {
-        problemDetail:
-          'Manual plant watering often leads to over-watering during humid periods and neglected dry spells during busy days. This wastes water resources and risks plant damage without continuous monitoring.',
-        approach:
-          'Constructed a low-voltage hardware loop using an analog soil moisture probe inserted into the soil bed. The analog signal is sampled by the ESP32 ADC, filtered for noise, and used to switch an optocoupled relay connected to a water valve.',
-        whatIBuilt:
-          'Assembled a bench prototype combining an ESP32 development board, capacitive/resistive soil probe, 5V relay channel, and custom C++ control firmware.',
-        whatILearned:
-          'Analog-to-digital converter noise filtering, hysteresis logic to prevent rapid valve toggling around threshold boundaries, and sensor corrosion management.',
-        whatsNext:
-          'Integrating low-power deep sleep cycles for extended battery operation and telemetry logging via Wi-Fi.',
-      },
-    },
-    {
       id: 'ai-study-buddy',
-      index: '02',
+      index: '01',
       title: 'AI Learning Assistant WebApp',
       tagline: 'Study-assistance web application built with Python and Streamlit',
       problem:

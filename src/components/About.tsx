@@ -1,33 +1,15 @@
 import React from 'react'
 import { portfolioContent } from '../data/content'
-import { GraduationCap, Languages, Users, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { GraduationCap, Languages, Users } from 'lucide-react'
 
 export const About: React.FC = () => {
   const { aboutBio, college, education, languages, experience } = portfolioContent
   const glitchverseExp = experience[0]
 
-  const processSteps = [
-    {
-      num: '01',
-      title: 'Discover & Model',
-      desc: 'Analyzing problem constraints, sensor pinouts, or user workflow bottlenecks to build solid architectural foundations.',
-    },
-    {
-      num: '02',
-      title: 'Code & Architect',
-      desc: 'Developing structured C/C++ firmware loops, responsive Streamlit web frontends, and clean Python business logic.',
-    },
-    {
-      num: '03',
-      title: 'Validate & Deploy',
-      desc: 'Bench-testing analog signals with real soil probes, running comprehensive test inputs, and releasing code on GitHub.',
-    },
-  ]
-
   const focusPills = [
     { label: 'AI Applications', color: 'border-orange-200 text-orange-700 bg-orange-50' },
     { label: 'Python & Streamlit', color: 'border-cyan-200 text-cyan-800 bg-cyan-50' },
-    { label: 'C / C++ Logic', color: 'border-purple-200 text-purple-700 bg-purple-50' },
+    { label: 'C Programming', color: 'border-purple-200 text-purple-700 bg-purple-50' },
     { label: 'ESP32 Hardware', color: 'border-lime-300 text-lime-900 bg-lime-100' },
     { label: 'Java (OOPs)', color: 'border-blue-200 text-blue-700 bg-blue-50' },
     { label: 'Data Structures', color: 'border-amber-200 text-amber-800 bg-amber-50' },
@@ -37,11 +19,11 @@ export const About: React.FC = () => {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="py-14 sm:py-20 bg-white dark:bg-neutral-950 border-b border-black/5 dark:border-white/10"
+      className="py-14 sm:py-18 bg-white dark:bg-neutral-950 border-b border-black/5 dark:border-white/10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Editorial "Hello!" Philosophy Statement (Directly modeled on the top right of reference image) */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="font-serif italic text-3xl sm:text-4xl text-neutral-800 dark:text-neutral-200 block mb-3">
             Hello!
           </span>
@@ -53,7 +35,7 @@ export const About: React.FC = () => {
             that solves real problems.
           </p>
 
-          {/* Surrounding Skill Pills matching reference */}
+          {/* Surrounding Skill Pills */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
             {focusPills.map((pill) => (
               <span
@@ -62,50 +44,6 @@ export const About: React.FC = () => {
               >
                 {pill.label}
               </span>
-            ))}
-          </div>
-        </div>
-
-        {/* "Here's how it works" / Engineering Process 3-Step Cards (Modeled on center right of reference image) */}
-        <div id="process" className="mb-16">
-          <div className="text-center mb-8">
-            <span className="font-serif italic text-xs tracking-wider text-neutral-500 uppercase block mb-1">
-              / Engineering Method
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
-              Here's how it works
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 relative">
-            {processSteps.map((step, idx) => (
-              <div
-                key={step.num}
-                className="card-light rounded-2xl p-6 relative bg-white dark:bg-neutral-900 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-3xl font-bold text-lime-600 dark:text-lime-400">
-                      {step.num}
-                    </span>
-                    <span className="w-8 h-8 rounded-full bg-lime-50 dark:bg-lime-950/60 border border-lime-200 dark:border-lime-800 flex items-center justify-center text-lime-700 dark:text-lime-300">
-                      <CheckCircle2 className="w-4 h-4" />
-                    </span>
-                  </div>
-                  <h4 className="text-lg font-bold text-neutral-900 dark:text-white mb-2">
-                    {step.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-
-                {idx < 2 && (
-                  <div className="hidden md:flex justify-end pt-3 text-neutral-300 dark:text-neutral-700">
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                )}
-              </div>
             ))}
           </div>
         </div>

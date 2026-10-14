@@ -1,8 +1,8 @@
 import React from 'react'
 import type { Project } from '../types/content'
-import { SmartIrrigationVisual, AIStudyBuddyVisual } from './ProjectVisuals'
+import { AIStudyBuddyVisual } from './ProjectVisuals'
 import { GithubIcon } from './SocialIcons'
-import { BookOpen, ExternalLink, Cpu, Sparkles } from 'lucide-react'
+import { BookOpen, ExternalLink, Sparkles } from 'lucide-react'
 
 interface ProjectCardProps {
   project: Project
@@ -15,7 +15,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   onOpenCaseStudy,
   isReversed = false,
 }) => {
-  const isAI = project.id === 'ai-study-buddy'
   const isRepoValid = project.repoUrl && !project.repoUrl.includes('[[')
 
   return (
@@ -28,17 +27,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           isReversed ? 'lg:flex-row-reverse' : ''
         }`}
       >
-        {/* Schematic / UI visual preview */}
+        {/* UI visual preview */}
         <div
           className={`lg:col-span-5 overflow-hidden rounded-xl bg-neutral-50 dark:bg-neutral-800/80 border border-black/5 dark:border-white/10 ${
             isReversed ? 'lg:order-2' : 'lg:order-1'
           }`}
         >
-          {project.id === 'smart-irrigation' ? (
-            <SmartIrrigationVisual />
-          ) : (
-            <AIStudyBuddyVisual />
-          )}
+          <AIStudyBuddyVisual />
         </div>
 
         {/* Project information */}
@@ -51,11 +46,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             {/* Header / Index badge */}
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-black/5 dark:border-white/10">
               <span className="font-mono text-xs font-semibold text-lime-700 dark:text-lime-400 flex items-center gap-1.5">
-                {isAI ? <Sparkles className="w-3.5 h-3.5" /> : <Cpu className="w-3.5 h-3.5" />}
+                <Sparkles className="w-3.5 h-3.5" />
                 PROJECT // {project.index}
               </span>
               <span className="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
-                Verified Build
+                Active Build
               </span>
             </div>
 

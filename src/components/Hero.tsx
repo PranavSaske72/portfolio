@@ -120,7 +120,7 @@ export const Hero: React.FC = () => {
           </div>
           <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
             <Code2 className="w-4 h-4 text-lime-600 dark:text-lime-400" />
-            <span>C / C++</span>
+            <span>C</span>
           </div>
           <div className="flex items-center gap-2 font-mono text-xs text-neutral-800 dark:text-neutral-200 font-semibold tracking-wider">
             <Cpu className="w-4 h-4 text-lime-600 dark:text-lime-400" />

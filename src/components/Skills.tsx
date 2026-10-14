@@ -15,7 +15,6 @@ export const Skills: React.FC = () => {
         { name: 'C', level: 'Intermediate, learning' },
         { name: 'Python', level: 'Working knowledge' },
         { name: 'Java', level: 'Working knowledge (OOPS)' },
-        { name: 'C++', level: 'Foundational' },
         { name: 'C#', level: 'Foundational' },
       ],
     },
